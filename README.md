@@ -2,11 +2,9 @@
 
 Aplicação em Java/Swing para um Totem sobre COVID-19 executado no Raspberry Pi 3B
 
-## Instalação do Raspbian
+## Raspbian
 
-Texto ...
-
-## Configurações do Raspbian
+### Instalação
 
 Texto ...
 
@@ -18,11 +16,15 @@ Texto ...
 
 Texto ...
 
-## Configuração do Raspberry Pi 3B
+## Raspberry Pi 3B
 
 Texto ...
 
-## Instalação do software
+### Configurações dos sensores
+
+Texto ...
+
+## Software
 
 Texto ...
 
