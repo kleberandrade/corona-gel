@@ -100,8 +100,8 @@ sudo reboot
 
 Pinos utilizados:
 
--   GPIO15: saída para o relé
--   GPIO16: entrada do sensor de distância (infravermelho)
+-   GPIO0: sensor de distância
+-   GPIO2: atuador relé
 
 <p align="center">
     <img src="https://github.com/kleberandrade/corona-gel/blob/master/figures/eletronic.png" width="750"/>
