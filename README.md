@@ -65,6 +65,25 @@ Salve o arquivo usando CTRL+X - S - ENTER. Logo após, reinicie.
 sudo reboot
 ```
 
+## Raspberry Pi 3B
+
+### Pinagem do Raspberry utilizando a biblioteca Pi4j
+
+<p align="center">
+    <img src="https://pi4j.com/1.2/images/j8header-3b-plus-large.png" width="400"/>
+</p>
+
+### Configurações dos sensores
+
+Pinos utilizados:
+
+-   GPIO15: saída para o relé
+-   GPIO16: entrada do sensor de distância (infravermelho)
+
+<p align="center">
+    <img src="https://github.com/kleberandrade/corona-gel/blob/master/figures/eletronic.png" width="400"/>
+</p>
+
 ## Software
 
 ### Localização das imagens
@@ -124,17 +143,3 @@ Salve o arquivo usando CTRL+X - S - ENTER. Em seguida, reinicie
 ```bash
 sudo reboot
 ```
-
-## Raspberry Pi 3B
-
-Texto ...
-
-### Configurações dos sensores
-
-Texto ...
-
-### Pinagem do Raspberry utilizando a biblioteca Pi4j
-
-<p align="center">
-    <img src="https://pi4j.com/1.2/images/j8header-3b-plus-large.png" width="400"/>
-</p>
