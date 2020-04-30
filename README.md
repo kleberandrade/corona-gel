@@ -63,7 +63,7 @@ Salve o arquivo usando CTRL+X - S - ENTER. Logo após, reinicie.
 sudo reboot
 ```
 
-### Rotacionar a tela
+### Rotacionar a tela (Opcional)
 
 Abra o terminal (CTRL+ALT+T) e digite o seguinte comando para abri o arquivo **config.txt**
 
