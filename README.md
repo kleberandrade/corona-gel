@@ -116,7 +116,7 @@ Para fazer download da última versão do sistema, iremos utilizar o git, abra o
 ```bash
 git clone https://github.com/kleberandrade/corona-gel
 sudo mkdir ~/Desktop/CoronaGel
-sudo cp -r corona-gel/dist/. ~/Desktop/CoronaGel
+sudo cp -r corona-gel/dist/. ~/Desktop/CoronaGel/
 ```
 
 ### Localização das imagens
