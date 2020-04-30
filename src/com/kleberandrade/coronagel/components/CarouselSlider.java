@@ -1,7 +1,8 @@
-package com.kleberandrade.coronagel.controllers;
+package com.kleberandrade.coronagel.components;
 
 import com.kleberandrade.coronagel.models.CarouselSliderImage;
 import com.kleberandrade.coronagel.helpers.FileHelper;
+import com.kleberandrade.coronagel.helpers.LogHelper;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -28,6 +29,7 @@ public class CarouselSlider extends JPanel implements ActionListener {
         this.changeImageTime = changeImageTime;
         this.fadeOutTime = fadeOutTime;
         this.images = takeImages();
+        LogHelper.write("load " + images.length + " images");
 
         currentImage = new CarouselSliderImage(this);
         nextImage = new CarouselSliderImage(this);

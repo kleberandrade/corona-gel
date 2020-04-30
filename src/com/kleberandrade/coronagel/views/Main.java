@@ -1,7 +1,9 @@
 package com.kleberandrade.coronagel.views;
 
-import com.kleberandrade.coronagel.controllers.CarouselSlider;
+import com.kleberandrade.coronagel.components.CarouselSlider;
+import com.kleberandrade.coronagel.helpers.LogHelper;
 import com.kleberandrade.coronagel.helpers.MouseHelper;
+import com.kleberandrade.coronagel.sensors.SensorManager;
 import javax.swing.JFrame;
 
 /**
@@ -12,8 +14,8 @@ public class Main extends javax.swing.JFrame {
     
     private static final int DELTA_TIME = 5000;
     private static final int FADE_OUT_TIME = 1000;
-    private CarouselSlider carousel;
-    
+    private CarouselSlider carouselSlider;
+    private SensorManager sensorManager;
 
     public Main() {
         super.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -22,15 +24,25 @@ public class Main extends javax.swing.JFrame {
     }
 
     private void initialize() {
-        carousel = new CarouselSlider(DELTA_TIME, FADE_OUT_TIME);
-        setContentPane(carousel);
+        LogHelper.write("open system");
+        carouselSlider = new CarouselSlider(DELTA_TIME, FADE_OUT_TIME);
+        setContentPane(carouselSlider);
         
         MouseHelper.hideCursor(this);
+        sensorManager = new SensorManager();
+    }
+
+    @Override
+    public void dispose() {
+        super.dispose();
+        sensorManager.dispose();
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Corona Gel");
@@ -38,15 +50,23 @@ public class Main extends javax.swing.JFrame {
         setUndecorated(true);
         setResizable(false);
 
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1920, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 699, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(1215, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1080, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(972, Short.MAX_VALUE))
         );
 
         setSize(new java.awt.Dimension(1920, 1080));
@@ -86,5 +106,6 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
