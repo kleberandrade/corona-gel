@@ -81,7 +81,7 @@ Pinos utilizados:
 -   GPIO16: entrada do sensor de distância (infravermelho)
 
 <p align="center">
-    <img src="https://github.com/kleberandrade/corona-gel/blob/master/figures/eletronic.png" width="600"/>
+    <img src="https://github.com/kleberandrade/corona-gel/blob/master/figures/eletronic.png" width="750"/>
 </p>
 
 ## Software
