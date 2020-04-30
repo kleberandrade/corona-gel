@@ -4,15 +4,38 @@ Aplicação em Java/Swing para um Totem sobre COVID-19 executado no Raspberry Pi
 
 ## Raspbian
 
-### Instalação
+### Instalação do Raspbian
 
-Primeiro, baixe o ISO, a imagem do sistema operacional Raspbian que você instalará. Isso pode ser [baixado aqui](https://downloads.raspberrypi.org/raspbian_latest).
+Primeiro, baixe o ISO, do sistema operacional Raspbian que você instalará. Isso pode ser [baixado aqui](https://downloads.raspberrypi.org/raspbian_latest).
 
-Em seguida, você precisará criar um pendrive inicializável. No Windows, um bom programa para criar um pendrive inicializável é chamado Rufus, que pode ser [baixado aqui](https://github.com/pbatard/rufus/releases/download/v3.10/rufus-3.10p.exe).
+Em seguida, você precisará criar um sdcard inicializável. No Windows, use o Rufus, que pode ser [baixado aqui](https://github.com/pbatard/rufus/releases/download/v3.10/rufus-3.10p.exe).
 
-Pegue um SD card classe 10, com um tamanho de 2 GB ou superior e execute o arquivo .exe do Rufus baixado. No Rufus, clique no menu suspenso do dispositivo para selecionar o pendrive. Em seguida, clique no ícone que mostra uma imagem de uma bandeja de CD / DVD, que fica a cerca de três quartos da caixa, ao lado de 'Criar um disco inicializável usando' e selecione o arquivo ISO do Raspbian que você acabou de baixar. Depois clique em Iniciar.
+Pegue um SD card classe 10, com 8 GB ou superior e execute o arquivo .exe do Rufus baixado. No Rufus, selecione o disco e a imagem. Depois clique em Iniciar.
 
-Agora insira o SD Card no Raspberry Pi e execute o processo de instalação.
+Agora insira o SD Card no Raspberry Pi e execute o processo de instalação do Raspbian. Atualize o software quando pedir.
+
+### Instalação do Java 8
+
+Vamos instalar a versão 8 do Java LTS, para isso, abra o terminal (CTRL+ALT+T) e digite:
+
+```bash
+sudo apt update
+sudo apt install openjdk-8-jdk
+```
+
+Verifique a instalação imprimindo a versão Java:
+
+```bash
+java -version
+```
+
+A saída deve ser algo como isto:
+
+```bash
+openjdk version "1.8.0_212"
+OpenJDK Runtime Environment (build 1.8.0_212-8u212-b01-1+rpi1-b01)
+OpenJDK Client VM (build 25.212-b01, mixed mode)
+```
 
 ### Manter a tela sempre ativa
 
@@ -64,6 +87,25 @@ Salve o arquivo usando CTRL+X - S - ENTER. Logo após, reinicie.
 ```bash
 sudo reboot
 ```
+
+## Raspberry Pi 3B
+
+### Pinagem do Raspberry utilizando a biblioteca Pi4j
+
+<p align="center">
+    <img src="https://pi4j.com/1.2/images/j8header-3b-plus-large.png" width="300"/>
+</p>
+
+### Configurações dos sensores
+
+Pinos utilizados:
+
+-   GPIO15: saída para o relé
+-   GPIO16: entrada do sensor de distância (infravermelho)
+
+<p align="center">
+    <img src="https://github.com/kleberandrade/corona-gel/blob/master/figures/eletronic.png" width="750"/>
+</p>
 
 ## Software
 
@@ -124,17 +166,3 @@ Salve o arquivo usando CTRL+X - S - ENTER. Em seguida, reinicie
 ```bash
 sudo reboot
 ```
-
-## Raspberry Pi 3B
-
-Texto ...
-
-### Configurações dos sensores
-
-Texto ...
-
-### Pinagem do Raspberry utilizando a biblioteca Pi4j
-
-<p align="center">
-    <img src="https://pi4j.com/1.2/images/j8header-3b-plus-large.png" width="400"/>
-</p>
