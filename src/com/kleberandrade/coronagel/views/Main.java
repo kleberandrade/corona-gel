@@ -16,16 +16,16 @@ public class Main extends javax.swing.JFrame {
     
 
     public Main() {
-        initComponents();
         super.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        
-        MouseHelper.hideCursor(this);
+        initComponents();
         initialize();
     }
 
     private void initialize() {
         carousel = new CarouselSlider(DELTA_TIME, FADE_OUT_TIME);
         setContentPane(carousel);
+        
+        MouseHelper.hideCursor(this);
     }
 
     @SuppressWarnings("unchecked")
@@ -42,20 +42,17 @@ public class Main extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1280, Short.MAX_VALUE)
+            .addGap(0, 1920, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
+            .addGap(0, 1080, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(1280, 720));
+        setSize(new java.awt.Dimension(1920, 1080));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
