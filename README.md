@@ -128,6 +128,8 @@ Crie uma pasta com o nome **figures** dentro da pasta CoronaGel
 /home/pi/Desktop/CoronaGel/figures
 ```
 
+Adicione todas as figuras que deseja exibir nesta pasta
+
 ### Auto inicialização do software
 
 Para colocar o software para inicializar automaticamente, abra o terminal (CTRL+ALT+T)
