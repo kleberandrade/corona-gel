@@ -16,37 +16,114 @@ Agora insira o SD Card no Raspberry Pi e execute o processo de instalação.
 
 ### Manter a tela sempre ativa
 
-Para manter a tela sempre ativa, é necessário abrir o terminal (CTRL + ALT + T) e digitar o seguinte comando para abri o arquivo lightdm.conf
+Para manter a tela sempre ativa, é necessário abrir o terminal (CTRL+ALT+T) e digitar o seguinte comando para abri o arquivo **lightdm.conf**
 
 ```bash
 sudo nano /etc/lightdm/lightdm.conf
 ```
+
 Com o arquivo aberto, procure esta linha
 
 ```bash
 # xserver-command=X
 ```
+
 E altere a linha para ficar desta forma
 
 ```bash
 xserver-command=X -s 0 -dpms
 ```
 
-## Software
+Salve o arquivo usando CTRL+X - S - ENTER. Logo após, reinicie.
 
-Texto ...
+```bash
+sudo reboot
+```
+
+### Rotacionar a tela
+
+Abra o terminal (CTRL+ALT+T) e digite o seguinte comando para abri o arquivo **config.txt**
+
+```bash
+sudo nano /boot/config.txt
+```
+
+Adicione uma das seguintes linhas na parte inferior do arquivo:
+
+```bash
+display_rotate = 0
+display_rotate = 1
+display_rotate = 2
+display_rotate = 3
+```
+
+0 é a configuração normal. 1 é 90 graus. 2 é 180 graus. 3 é 270 graus.
+
+Salve o arquivo usando CTRL+X - S - ENTER. Logo após, reinicie.
+
+```bash
+sudo reboot
+```
+
+## Software
 
 ### Localização das imagens
 
-Texto ...
+Adicione todas as imagens que serão utilizadas em:
+
+```bash
+/home/pi/Pictures/
+```
 
 ### Auto inicialização do software
 
-Texto ...
+Para colocar o software para inicializar automaticamente, abra o terminal (CTRL+ALT+T)
 
-### Girar o desktop
+```bash
+sudo nano ~/myjar.sh
+```
 
-Texto ...
+Dentro do arquivo digite:
+
+```bash
+java -jar /home/pi/Desktop/CoronaGel.jar
+```
+
+Salve o arquivo usando CTRL+X - S - ENTER. Ainda no terminal, vamos alterar a permissão do **myjar.sh**
+
+```bash
+sudo chmod ugo+x ~/myhar.sh
+```
+
+Agora vamos abrir o arquivo **.bashrc**, para isso digite:
+
+```bash
+sudo nano ~/.bashrc
+```
+
+Ao abrir o arquivo, navega até a ultima linha e digite
+
+```bash
+bash myjar.sh
+```
+
+Salve o arquivo usando CTRL+X - S - ENTER. Ainda no terminar, digite
+
+```bash
+sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
+```
+
+No final do arquivo digite
+
+```bash
+@lxterminal
+```
+
+Salve o arquivo usando CTRL+X - S - ENTER. Em seguida, reinicie
+
+```bash
+sudo reboot
+```
 
 ## Raspberry Pi 3B
 
