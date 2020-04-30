@@ -144,7 +144,7 @@ Dentro do arquivo digite:
 java -jar ~/Desktop/CoronaGel/CoronaGel.jar
 ```
 
-Salve o arquivo usando CTRL+X - S - ENTER. Ainda no terminal, vamos alterar a permissão do **myjar.sh**
+Salve o arquivo usando CTRL+X - S - ENTER. Ainda no terminal, vamos alterar a permissão do **coronagel.sh**
 
 ```bash
 sudo chmod ugo+x ~/Desktop/CoronaGel/coronagel.sh
