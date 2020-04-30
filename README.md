@@ -132,7 +132,7 @@ Crie uma pasta com o nome **figures** dentro da pasta CoronaGel
 Para colocar o software para inicializar automaticamente, abra o terminal (CTRL+ALT+T)
 
 ```bash
-sudo nano ~/myjar.sh
+sudo nano ~/Desktop/CoronaGel/coronagel.sh
 ```
 
 Dentro do arquivo digite:
@@ -144,7 +144,7 @@ java -jar ~/Desktop/CoronaGel/CoronaGel.jar
 Salve o arquivo usando CTRL+X - S - ENTER. Ainda no terminal, vamos alterar a permissão do **myjar.sh**
 
 ```bash
-sudo chmod ugo+x ~/myhar.sh
+sudo chmod ugo+x ~/Desktop/CoronaGel/coronagel.sh
 ```
 
 Agora vamos abrir o arquivo **.bashrc**, para isso digite:
@@ -156,7 +156,7 @@ sudo nano ~/.bashrc
 Ao abrir o arquivo, navega até a ultima linha e digite
 
 ```bash
-bash myjar.sh
+bash ~/Desktop/CoronaGel/coronagel.sh
 ```
 
 Salve o arquivo usando CTRL+X - S - ENTER. Ainda no terminar, digite
