@@ -121,10 +121,10 @@ sudo cp -r corona-gel/dist/. ~/Desktop/CoronaGel/
 
 ### Localização das imagens
 
-Crie uma pasta com o nome **Pictures** dentro da pasta CoronaGel
+Crie uma pasta com o nome **figures** dentro da pasta CoronaGel
 
 ```bash
-/home/pi/Desktop/CoronaGel/Pictures
+/home/pi/Desktop/CoronaGel/figures
 ```
 
 ### Auto inicialização do software
