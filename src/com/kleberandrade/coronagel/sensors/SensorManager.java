@@ -28,10 +28,10 @@ public class SensorManager implements GpioPinListenerDigital {
         LogHelper.write("Configuring sensors");
         gpio = GpioFactory.getInstance();
 
-        inPin = gpio.provisionDigitalInputPin(RaspiPin.GPIO_16);
+        inPin = gpio.provisionDigitalInputPin(RaspiPin.GPIO_00);
         gpio.addListener(this, inPin);
 
-        outPin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_15, "RELE", PinState.LOW);
+        outPin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_02, "RELE", PinState.LOW);
     }
 
     @Override
