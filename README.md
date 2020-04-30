@@ -116,13 +116,13 @@ Para fazer download da última versão do sistema, iremos utilizar o git, abra o
 ```bash
 git clone https://github.com/kleberandrade/corona-gel
 sudo mkdir ~/Desktop/CoronaGel
-sudo chown pi -R CoronaGel/
+sudo chown pi -R ~/Desktop/CoronaGel
 sudo cp -r corona-gel/dist/. ~/Desktop/CoronaGel/
 ```
 
 ### Localização das imagens
 
-Crie uma pasta com o nome **figures** dentro da pasta CoronaGel
+Crie uma pasta com o nome **figures** dentro da pasta CoronaGel (pode utilizar o mouse para criar a pasta)
 
 ```bash
 /home/pi/Desktop/CoronaGel/figures
