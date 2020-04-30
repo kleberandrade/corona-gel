@@ -4,15 +4,38 @@ Aplicação em Java/Swing para um Totem sobre COVID-19 executado no Raspberry Pi
 
 ## Raspbian
 
-### Instalação
+### Instalação do Raspbian
 
-Primeiro, baixe o ISO, a imagem do sistema operacional Raspbian que você instalará. Isso pode ser [baixado aqui](https://downloads.raspberrypi.org/raspbian_latest).
+Primeiro, baixe o ISO, do sistema operacional Raspbian que você instalará. Isso pode ser [baixado aqui](https://downloads.raspberrypi.org/raspbian_latest).
 
-Em seguida, você precisará criar um pendrive inicializável. No Windows, um bom programa para criar um pendrive inicializável é chamado Rufus, que pode ser [baixado aqui](https://github.com/pbatard/rufus/releases/download/v3.10/rufus-3.10p.exe).
+Em seguida, você precisará criar um sdcard inicializável. No Windows, use o Rufus, que pode ser [baixado aqui](https://github.com/pbatard/rufus/releases/download/v3.10/rufus-3.10p.exe).
 
-Pegue um SD card classe 10, com um tamanho de 2 GB ou superior e execute o arquivo .exe do Rufus baixado. No Rufus, clique no menu suspenso do dispositivo para selecionar o pendrive. Em seguida, clique no ícone que mostra uma imagem de uma bandeja de CD / DVD, que fica a cerca de três quartos da caixa, ao lado de 'Criar um disco inicializável usando' e selecione o arquivo ISO do Raspbian que você acabou de baixar. Depois clique em Iniciar.
+Pegue um SD card classe 10, com 8 GB ou superior e execute o arquivo .exe do Rufus baixado. No Rufus, selecione o disco e a imagem. Depois clique em Iniciar.
 
-Agora insira o SD Card no Raspberry Pi e execute o processo de instalação.
+Agora insira o SD Card no Raspberry Pi e execute o processo de instalação do Raspbian. Atualize o software quando pedir.
+
+### Instalação do Java 8
+
+Vamos instalar a versão 8 do Java LTS, para isso, abra o terminal (CTRL+ALT+T) e digite:
+
+```bash
+sudo apt update
+sudo apt install openjdk-8-jdk
+```
+
+Verifique a instalação imprimindo a versão Java:
+
+```bash
+java -version
+```
+
+A saída deve ser algo como isto:
+
+```bash
+openjdk version "1.8.0_212"
+OpenJDK Runtime Environment (build 1.8.0_212-8u212-b01-1+rpi1-b01)
+OpenJDK Client VM (build 25.212-b01, mixed mode)
+```
 
 ### Manter a tela sempre ativa
 
