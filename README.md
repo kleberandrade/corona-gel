@@ -132,3 +132,9 @@ Texto ...
 ### Configurações dos sensores
 
 Texto ...
+
+### Pinagem do Raspberry utilizando a biblioteca Pi4j
+
+<p align="center">
+    <img src="https://pi4j.com/1.2/images/j8header-3b-plus-large.png" width="400"/>
+</p>
