@@ -70,7 +70,7 @@ sudo reboot
 ### Pinagem do Raspberry utilizando a biblioteca Pi4j
 
 <p align="center">
-    <img src="https://pi4j.com/1.2/images/j8header-3b-plus-large.png" width="400"/>
+    <img src="https://pi4j.com/1.2/images/j8header-3b-plus-large.png" width="300"/>
 </p>
 
 ### Configurações dos sensores
@@ -81,7 +81,7 @@ Pinos utilizados:
 -   GPIO16: entrada do sensor de distância (infravermelho)
 
 <p align="center">
-    <img src="https://github.com/kleberandrade/corona-gel/blob/master/figures/eletronic.png" width="400"/>
+    <img src="https://github.com/kleberandrade/corona-gel/blob/master/figures/eletronic.png" width="600"/>
 </p>
 
 ## Software
