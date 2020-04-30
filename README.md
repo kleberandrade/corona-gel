@@ -109,12 +109,22 @@ Pinos utilizados:
 
 ## Software
 
-### Localização das imagens
+### Download do sistema
 
-Adicione todas as imagens que serão utilizadas em:
+Para fazer download da última versão do sistema, iremos utilizar o git, abra o terminal (CTRL+ALT+T) e digite:
 
 ```bash
-/home/pi/Pictures/
+git clone https://github.com/kleberandrade/corona-gel
+sudo mkdir ~/Desktop/CoronaGel
+sudo cp -r corona-gel/dist/. ~/Desktop/CoronaGel
+```
+
+### Localização das imagens
+
+Crie uma pasta com o nome **Pictures** dentro da pasta CoronaGel
+
+```bash
+/home/pi/Desktop/CoronaGel/Pictures
 ```
 
 ### Auto inicialização do software
@@ -128,7 +138,7 @@ sudo nano ~/myjar.sh
 Dentro do arquivo digite:
 
 ```bash
-java -jar /home/pi/Desktop/CoronaGel.jar
+java -jar ~/Desktop/CoronaGel/CoronaGel.jar
 ```
 
 Salve o arquivo usando CTRL+X - S - ENTER. Ainda no terminal, vamos alterar a permissão do **myjar.sh**
