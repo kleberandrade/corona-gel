@@ -11,7 +11,7 @@ import javax.swing.JFrame;
  * @author Kleber de Oliveira Andrade
  */
 public class Main extends javax.swing.JFrame {
-    
+
     private static final int DELTA_TIME = 5000;
     private static final int FADE_OUT_TIME = 1000;
     private CarouselSlider carouselSlider;
@@ -24,18 +24,19 @@ public class Main extends javax.swing.JFrame {
     }
 
     private void initialize() {
-        LogHelper.write("open system");
-        carouselSlider = new CarouselSlider(DELTA_TIME, FADE_OUT_TIME);
-        setContentPane(carouselSlider);
-        
+        LogHelper.write("Opening system version 1.0");
         MouseHelper.hideCursor(this);
         sensorManager = new SensorManager();
+
+        carouselSlider = new CarouselSlider(DELTA_TIME, FADE_OUT_TIME);
+        setContentPane(carouselSlider);
     }
 
     @Override
     public void dispose() {
         super.dispose();
         sensorManager.dispose();
+        LogHelper.write("Close system");
     }
 
     @SuppressWarnings("unchecked")

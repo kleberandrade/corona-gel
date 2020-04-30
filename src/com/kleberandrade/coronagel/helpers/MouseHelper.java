@@ -5,7 +5,6 @@
  */
 package com.kleberandrade.coronagel.helpers;
 
-import static com.sun.javafx.tk.Toolkit.getToolkit;
 import java.awt.Cursor;
 import java.awt.Point;
 import javax.swing.ImageIcon;

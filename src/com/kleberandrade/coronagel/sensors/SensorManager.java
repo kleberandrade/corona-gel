@@ -16,7 +16,8 @@ import com.pi4j.io.gpio.event.GpioPinListenerDigital;
  */
 public class SensorManager implements GpioPinListenerDigital {
 
-    private static final int RELE_TIME = 2000;
+    private static final int RELE_TIME = 1500;
+    private static final int RELE_DELAY = 4000;
 
     private final GpioController gpio;
     private final GpioPinDigitalOutput outPin;
@@ -47,12 +48,13 @@ public class SensorManager implements GpioPinListenerDigital {
 
         try {
             outOpened = true;
-            LogHelper.write("Open alcohol outlet in gel");
+            LogHelper.write("Opening alcohol gel");
             outPin.high();
             Thread.sleep(RELE_TIME);
             outPin.low();
+            LogHelper.write("Close alcohol gel");
+            Thread.sleep(RELE_DELAY);
             outOpened = false;
-            LogHelper.write("Close alcohol gel exit");
         } catch (InterruptedException ex) {
             LogHelper.write(ex.getMessage());
         }

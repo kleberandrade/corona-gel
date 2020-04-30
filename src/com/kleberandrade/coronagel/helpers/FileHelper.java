@@ -5,14 +5,12 @@ import java.util.Arrays;
 
 public class FileHelper {
 
-    //public static String IMAGES_FILE = "D:/Figures/";
-    public static String IMAGES_FILE = "/home/pi/Pictures/";
-    
+    public static String IMAGES_FILE = "/home/pi/Desktop/CoronaGel/figures/";
+
     public String[] getFolderFiles(String folder) {
         File file = new File(folder);
         String[] fileList = file.list();
         Arrays.sort(fileList);
         return fileList;
     }
-
 }

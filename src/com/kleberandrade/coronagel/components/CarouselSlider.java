@@ -29,7 +29,7 @@ public class CarouselSlider extends JPanel implements ActionListener {
         this.changeImageTime = changeImageTime;
         this.fadeOutTime = fadeOutTime;
         this.images = takeImages();
-        LogHelper.write("load " + images.length + " images");
+        LogHelper.write("Load " + images.length + " images");
 
         currentImage = new CarouselSliderImage(this);
         nextImage = new CarouselSliderImage(this);
@@ -73,29 +73,28 @@ public class CarouselSlider extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent event) {
-        
-        if (startTime == 0){
+
+        if (startTime == 0) {
             startTime = event.getWhen();
         }
-        
+
         long elapsedTime = event.getWhen() - startTime;
         long displacement = currentImage.getWidth() / fadeOutTime * elapsedTime;
-        
-        currentImage.setX((int)-displacement);
-        nextImage.setX(nextImage.getWidth() - (int)displacement);
-        
-        if (nextImage.getX() <= 0){
+
+        currentImage.setX((int) -displacement);
+        nextImage.setX(nextImage.getWidth() - (int) displacement);
+
+        if (nextImage.getX() <= 0) {
             startTime = 0;
             timer.stop();
             setTimer();
-            
+
             currentImage.setX(0);
             nextImage.setX(currentImage.getWidth());
             index = ++index % images.length;
         }
-        
-        repaint();
 
+        repaint();
     }
 
     private String[] takeImages() {
