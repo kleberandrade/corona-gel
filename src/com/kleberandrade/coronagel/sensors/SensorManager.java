@@ -1,6 +1,7 @@
 package com.kleberandrade.coronagel.sensors;
 
 import com.kleberandrade.coronagel.helpers.LogHelper;
+import com.kleberandrade.coronagel.interfaces.HandDetectionListener;
 import com.pi4j.io.gpio.GpioController;
 import com.pi4j.io.gpio.GpioFactory;
 import com.pi4j.io.gpio.GpioPinDigitalInput;
@@ -23,8 +24,9 @@ public class SensorManager implements GpioPinListenerDigital {
     private final GpioPinDigitalOutput outPin;
     private final GpioPinDigitalInput inPin;
     private boolean outOpened = false;
+    private HandDetectionListener detectionListener;
 
-    public SensorManager() {
+    public SensorManager(HandDetectionListener detectionListener) {
         LogHelper.write("Configuring sensors");
         gpio = GpioFactory.getInstance();
 
@@ -32,11 +34,13 @@ public class SensorManager implements GpioPinListenerDigital {
         gpio.addListener(this, inPin);
 
         outPin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_02, "RELE", PinState.LOW);
+        
+        this.detectionListener = detectionListener;
     }
 
     @Override
     public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
-        if (event.getState() == PinState.HIGH) {
+        if (event.getState().isLow()) {
             openRele();
         }
     }
@@ -47,14 +51,18 @@ public class SensorManager implements GpioPinListenerDigital {
         }
 
         try {
+            detectionListener.turnOn();
+            Thread.sleep(100);
             outOpened = true;
+            outPin.high();            
             LogHelper.write("Opening alcohol gel");
-            outPin.high();
             Thread.sleep(RELE_TIME);
-            outPin.low();
             LogHelper.write("Close alcohol gel");
+            
+            outPin.low();
             Thread.sleep(RELE_DELAY);
             outOpened = false;
+            detectionListener.turnOff();
         } catch (InterruptedException ex) {
             LogHelper.write(ex.getMessage());
         }

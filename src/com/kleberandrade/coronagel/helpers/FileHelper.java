@@ -5,8 +5,6 @@ import java.util.Arrays;
 
 public class FileHelper {
 
-    public static String IMAGES_FILE = "/home/pi/Desktop/CoronaGel/figures/";
-
     public String[] getFolderFiles(String folder) {
         File file = new File(folder);
         String[] fileList = file.list();

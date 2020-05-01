@@ -12,8 +12,8 @@ import javax.swing.JFrame;
  */
 public class Main extends javax.swing.JFrame {
 
-    private static final int DELTA_TIME = 5000;
-    private static final int FADE_OUT_TIME = 1000;
+    private static final int DELTA_TIME = 7000;
+    private static final int FADE_OUT_TIME = 500;
     private CarouselSlider carouselSlider;
     private SensorManager sensorManager;
 
@@ -26,10 +26,10 @@ public class Main extends javax.swing.JFrame {
     private void initialize() {
         LogHelper.write("Opening system version 1.0");
         MouseHelper.hideCursor(this);
-        sensorManager = new SensorManager();
-
         carouselSlider = new CarouselSlider(DELTA_TIME, FADE_OUT_TIME);
         setContentPane(carouselSlider);
+        
+        sensorManager = new SensorManager(carouselSlider);
     }
 
     @Override
@@ -43,31 +43,21 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Corona Gel");
         setAlwaysOnTop(true);
         setUndecorated(true);
         setResizable(false);
 
-        jLabel1.setText("jLabel1");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 699, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1215, Short.MAX_VALUE))
+            .addGap(0, 1920, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(972, Short.MAX_VALUE))
+            .addGap(0, 1080, Short.MAX_VALUE)
         );
 
         setSize(new java.awt.Dimension(1920, 1080));
@@ -107,6 +97,5 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

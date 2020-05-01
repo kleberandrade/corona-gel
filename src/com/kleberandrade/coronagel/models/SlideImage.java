@@ -5,7 +5,7 @@
  */
 package com.kleberandrade.coronagel.models;
 
-import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.ImageObserver;
 
@@ -13,7 +13,7 @@ import java.awt.image.ImageObserver;
  *
  * @author pdjkl
  */
-public class CarouselSliderImage {
+public class SlideImage {
 
     private Image image;
     private ImageObserver imageObserver;
@@ -22,11 +22,16 @@ public class CarouselSliderImage {
     private int width;
     private int height;
 
-    public CarouselSliderImage(ImageObserver imageObserver) {
+    public SlideImage(Image image, ImageObserver imageObserver) {
+        this.image = image;
         this.imageObserver = imageObserver;
     }
 
-    public void draw(Graphics graphics) {
+    public SlideImage(ImageObserver imageObserver) {
+        this.imageObserver = imageObserver;
+    }
+
+    public void draw(Graphics2D graphics) {
         graphics.drawImage(image, x, y, width, height, imageObserver);
     }
 
