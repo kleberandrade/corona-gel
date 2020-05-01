@@ -37,7 +37,7 @@ Pinos utilizados:
 
 ### Download do sistema
 
-Para fazer download da última versão do sistema, iremos utilizar o git, abra o terminal (CTRL+ALT+T) e digite:
+Abra o terminal (CTRL+ALT+T) e digite:
 
 ```bash
 git clone https://github.com/kleberandrade/corona-gel
