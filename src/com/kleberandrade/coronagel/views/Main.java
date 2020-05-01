@@ -41,11 +41,11 @@ public class Main extends javax.swing.JFrame {
         setUndecorated(true);
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
-            }
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
             }
         });
 
@@ -71,9 +71,9 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowClosing
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         initialize();
-    }//GEN-LAST:event_formWindowOpened
+    }//GEN-LAST:event_formWindowActivated
 
     public static void main(String args[]) {
         try {
