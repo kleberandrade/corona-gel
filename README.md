@@ -85,7 +85,7 @@ display_rotate = 3
 Salve o arquivo usando CTRL+X - S - ENTER. Logo após, reinicie.
 
 ```bash
-sudo reboot
+reboot
 ```
 
 ## Raspberry Pi 3B
@@ -115,9 +115,8 @@ Para fazer download da última versão do sistema, iremos utilizar o git, abra o
 
 ```bash
 git clone https://github.com/kleberandrade/corona-gel
-sudo mkdir ~/Desktop/CoronaGel
-sudo chown pi -R ~/Desktop/CoronaGel
-sudo cp -r corona-gel/dist/. ~/Desktop/CoronaGel/
+mkdir ~/Desktop/CoronaGel
+cp -r corona-gel/dist/. ~/Desktop/CoronaGel/
 ```
 
 ### Atualiação do sistema (Opcional)
@@ -158,13 +157,13 @@ sudo nano ~/Desktop/CoronaGel/coronagel.sh
 Dentro do arquivo digite:
 
 ```bash
-java -jar ~/Desktop/CoronaGel/CoronaGel.jar
+sudo java -jar ~/Desktop/CoronaGel/CoronaGel.jar
 ```
 
 Salve o arquivo usando CTRL+X - S - ENTER. Ainda no terminal, vamos alterar a permissão do **coronagel.sh**
 
 ```bash
-sudo chmod ugo+x ~/Desktop/CoronaGel/coronagel.sh
+sudo chmod +x ~/Desktop/CoronaGel/coronagel.sh
 ```
 
 Agora vamos abrir o arquivo **.bashrc**, para isso digite:
