@@ -20,7 +20,6 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         super.setExtendedState(JFrame.MAXIMIZED_BOTH);
         initComponents();
-        initialize();
     }
 
     private void initialize() {
@@ -32,13 +31,6 @@ public class Main extends javax.swing.JFrame {
         sensorManager = new SensorManager(carouselSlider);
     }
 
-    @Override
-    public void dispose() {
-        super.dispose();
-        sensorManager.dispose();
-        LogHelper.write("Close system");
-    }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -48,6 +40,14 @@ public class Main extends javax.swing.JFrame {
         setAlwaysOnTop(true);
         setUndecorated(true);
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -63,6 +63,15 @@ public class Main extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1920, 1080));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        sensorManager.dispose();
+        LogHelper.write("Close system");
+    }//GEN-LAST:event_formWindowClosed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        initialize();
+    }//GEN-LAST:event_formWindowOpened
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

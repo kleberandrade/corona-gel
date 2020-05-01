@@ -52,7 +52,6 @@ public class SensorManager implements GpioPinListenerDigital {
 
         try {
             detectionListener.turnOn();
-            Thread.sleep(100);
             outOpened = true;
             outPin.high();            
             LogHelper.write("Opening alcohol gel");
