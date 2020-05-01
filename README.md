@@ -14,12 +14,6 @@ Aplicação em Java/Swing para um Totem sobre COVID-19 executado no Raspberry Pi
 
 ## Raspberry Pi 3B
 
-### Pinagem do Raspberry utilizando a biblioteca Pi4j
-
-<p align="center">
-    <img src="https://pi4j.com/1.2/images/j8header-3b-plus-large.png" width="300"/>
-</p>
-
 ### Configurações dos sensores
 
 Pinos utilizados:
