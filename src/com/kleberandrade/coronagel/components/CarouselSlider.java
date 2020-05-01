@@ -18,6 +18,8 @@ public class CarouselSlider extends JPanel implements ActionListener, HandDetect
 
     public static String SLIDE_IMAGES = "/home/pi/Desktop/CoronaGel/figures/slides/";
     public static String SENSOR_IMAGES = "/home/pi/Desktop/CoronaGel/figures/sensors/";
+    //public static String SLIDE_IMAGES = "D:/Figures/";
+    //public static String SENSOR_IMAGES = "D:/Figures/";
 
     private final String[] slideImagesFilename;
     private final String sensorImageFilename;
@@ -74,7 +76,7 @@ public class CarouselSlider extends JPanel implements ActionListener, HandDetect
                 currentImage.setHeight(graphics.getClipBounds().height);
                 nextImage.setWidth(graphics.getClipBounds().width);
                 nextImage.setHeight(graphics.getClipBounds().height);
-                nextImage.setY(currentImage.getHeight());
+                nextImage.setY(-currentImage.getHeight());
                 firstTime = false;
             }
 
@@ -110,18 +112,18 @@ public class CarouselSlider extends JPanel implements ActionListener, HandDetect
         }
 
         long elapsedTime = event.getWhen() - startTime;
-        long displacement = currentImage.getHeight()/ fadeOutTime * elapsedTime;
+        long displacement = currentImage.getHeight() / fadeOutTime * elapsedTime;
 
-        currentImage.setY((int) -displacement);
-        nextImage.setY(nextImage.getHeight()- (int) displacement);
+        currentImage.setY((int)displacement);
+        nextImage.setY(-nextImage.getHeight() + (int) displacement);
 
-        if (nextImage.getY() <= 0) {
+        if (nextImage.getY() >= 0) {
             startTime = 0;
             timer.stop();
             setTimer();
 
             currentImage.setY(0);
-            nextImage.setY(currentImage.getHeight());
+            nextImage.setY(-currentImage.getHeight());
             index = ++index % slideImagesFilename.length;
         }
 

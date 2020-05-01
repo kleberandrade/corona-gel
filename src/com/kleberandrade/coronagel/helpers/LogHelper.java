@@ -20,6 +20,7 @@ import java.util.logging.Logger;
 public class LogHelper {
 
     public static final String LOG_FILE = "/home/pi/Desktop/CoronaGel/log.txt";
+    //public static final String LOG_FILE = "D:/log.txt";
 
     public static void write(String text) {
         BufferedWriter writer;
