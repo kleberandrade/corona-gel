@@ -126,7 +126,7 @@ sudo cp -r corona-gel/dist/. ~/Desktop/CoronaGel/
 cd ~/coronal-gel
 git fetch
 git pull
-cp -r dist/. ~/Desktop/CoronaGel/
+sudo cp -r dist/. ~/Desktop/CoronaGel/
 ```
 
 Agora é só reiniciar o sistema
