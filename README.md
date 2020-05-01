@@ -48,8 +48,8 @@ git clone https://github.com/kleberandrade/corona-gel
 Abra o terminal (CTRL+ALT+T) e digite:
 
 ```bash
-chmod +x ~/corona-gel/install.sh
-cd corona-gel
+cd ~/corona-gel
+chmod +x install.sh
 ./install.sh
 ```
 
@@ -58,8 +58,8 @@ cd corona-gel
 Abra o terminal (CTRL+ALT+T) e digite:
 
 ```bash
-chmod +x ~/corona-gel/update.sh
-cd corona-gel
+cd ~/corona-gel
+chmod +x update.sh
 ./update.sh
 ```
 
