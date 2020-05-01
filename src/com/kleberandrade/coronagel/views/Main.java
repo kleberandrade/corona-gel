@@ -20,6 +20,7 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         super.setExtendedState(JFrame.MAXIMIZED_BOTH);
         initComponents();
+        initialize();
     }
 
     private void initialize() {
@@ -41,9 +42,6 @@ public class Main extends javax.swing.JFrame {
         setUndecorated(true);
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowActivated(java.awt.event.WindowEvent evt) {
-                formWindowActivated(evt);
-            }
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
@@ -70,10 +68,6 @@ public class Main extends javax.swing.JFrame {
             sensorManager.dispose();
         }
     }//GEN-LAST:event_formWindowClosing
-
-    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        initialize();
-    }//GEN-LAST:event_formWindowActivated
 
     public static void main(String args[]) {
         try {
