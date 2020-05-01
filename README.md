@@ -120,15 +120,32 @@ sudo chown pi -R ~/Desktop/CoronaGel
 sudo cp -r corona-gel/dist/. ~/Desktop/CoronaGel/
 ```
 
-### Localização das imagens
-
-Crie uma pasta com o nome **figures** dentro da pasta CoronaGel (pode utilizar o mouse para criar a pasta)
+### Atualiação do sistema (Opcional)
 
 ```bash
-/home/pi/Desktop/CoronaGel/figures
+cd ~/coronal-gel
+git fetch
+git pull
+cp -r dist/. ~/Desktop/CoronaGel/
 ```
 
-Adicione todas as figuras que deseja exibir nesta pasta
+Agora é só reiniciar o sistema
+
+```bash
+sudo reboot
+```
+
+### Localização das imagens
+
+Crie uma pasta com o nome **figures/slides** e **figures/sensors** dentro da pasta CoronaGel (pode utilizar o mouse para criar a pasta)
+
+```bash
+mkdir ~/Desktop/CoronaGel/figures
+mkdir ~/Desktop/CoronaGel/figures/slides
+mkdir ~/Desktop/CoronaGel/figures/sensors
+```
+
+Dentro da pasta slides você pode colocar quantas imagens quiser. Na pasta sensors você deve colocar somente uma imagem (imagem que vai aparecer quando a pessoa colocar a mão para pegar o alcool em gel).
 
 ### Auto inicialização do software
 
