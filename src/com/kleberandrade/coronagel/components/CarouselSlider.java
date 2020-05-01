@@ -74,7 +74,7 @@ public class CarouselSlider extends JPanel implements ActionListener, HandDetect
                 currentImage.setHeight(graphics.getClipBounds().height);
                 nextImage.setWidth(graphics.getClipBounds().width);
                 nextImage.setHeight(graphics.getClipBounds().height);
-                nextImage.setX(currentImage.getWidth());
+                nextImage.setY(currentImage.getHeight());
                 firstTime = false;
             }
 
@@ -110,18 +110,18 @@ public class CarouselSlider extends JPanel implements ActionListener, HandDetect
         }
 
         long elapsedTime = event.getWhen() - startTime;
-        long displacement = currentImage.getWidth() / fadeOutTime * elapsedTime;
+        long displacement = currentImage.getHeight()/ fadeOutTime * elapsedTime;
 
-        currentImage.setX((int) -displacement);
-        nextImage.setX(nextImage.getWidth() - (int) displacement);
+        currentImage.setY((int) -displacement);
+        nextImage.setY(nextImage.getHeight()- (int) displacement);
 
-        if (nextImage.getX() <= 0) {
+        if (nextImage.getY() <= 0) {
             startTime = 0;
             timer.stop();
             setTimer();
 
-            currentImage.setX(0);
-            nextImage.setX(currentImage.getWidth());
+            currentImage.setY(0);
+            nextImage.setY(currentImage.getHeight());
             index = ++index % slideImagesFilename.length;
         }
 
