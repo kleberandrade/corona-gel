@@ -107,3 +107,23 @@ as well, leaving no authorized publication step pending.
 - Expanded CI to Linux x64 and ARM64. This validates CPU/runtime paths without
   claiming Raspberry Pi OS, physical GPIO, pump or interactive-desktop validation.
 - User authorized push to main and monitoring CI to completion for this change.
+
+## Pi installation procedure and actual screen content — 2026-11-16
+
+- Inspected the preserved Fritzing image: component models, coil/module electrical
+  characteristics and pinouts cannot be reliably identified from it. Asked for
+  model information; the user authorized choosing recommended compatible parts.
+- Chose the active/current Pololu digital distance sensor v2 #5552 (3.3 V supply,
+  active-low OUT) and Adafruit STEMMA non-latching mini relay #4409 (3.3 V signal,
+  active-high, integrated driver). Consulted manufacturer pins/specifications and
+  avoided the discontinued Sharp carrier as a new-design recommendation.
+- Added a separate relay assembly, net list and editable connection diagram, keeping
+  the original GPIO17/27 contract. Retained the prior MOSFET alternative and legacy
+  drawings without mixing their BOMs. Documented unloaded testing before pump wiring.
+- Added Trixie 64-bit desktop / Java 21 installation commands, GPIO-access checks,
+  expected sensor/relay behavior, troubleshooting and explicit physical-test limits.
+- Added portrait demo generation and a reproducible headless renderer of the actual
+  CarouselSlider. Captured its real demo slide on the EDT, then used the built-in
+  image edit tool to insert that source into a sibling totem concept image. Saved
+  original render, exact edit prompt and provenance; no Pi/physical screen capture
+  or invented UI is claimed. Added both example modes and preview capture to CI.

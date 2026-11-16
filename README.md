@@ -13,10 +13,13 @@ sanitation, dosage, disease-prevention, or medical efficacy claim.
 
 ## Totem concept
 
-![Illustrative Corona Gel totem with screen, hand sensor and dispenser](docs/images/corona-gel-totem.png)
+![Illustrative Corona Gel totem with screen, hand sensor and dispenser](docs/images/corona-gel-totem-with-app.png)
 
-AI-generated product concept, not a photograph of the original installation or a
-validated enclosure design. [Image provenance and prompt](docs/images/README.md).
+Illustrative enclosure with a real render of the Java/Swing carousel showing the
+repository's portrait demo slide. The screen render is reproducible; the physical
+totem is an AI-generated concept, not a photograph of a tested Raspberry Pi assembly.
+[Original screen render](docs/images/application-preview.png) ·
+[Image provenance, commands and edit prompt](docs/images/README.md).
 
 ## Requirements
 
@@ -79,7 +82,19 @@ active-low digital input on BCM17 (physical 11), and active-high driver output o
 BCM27 (physical 13). The original 1.5 s pulse and 4 s cooldown are retained. See
 [setup and compatibility checks on Raspberry Pi](docs/RASPBERRY_PI.md).
 
+For a concrete proximity-sensor + relay assembly, use the
+[recommended Pololu #5552 / Adafruit #4409 guide](hardware/relay/README.md) and
+[step-by-step installation and unloaded relay test](docs/RASPBERRY_PI.md#step-by-step-installation-and-relay-test).
+These documented compatible parts were selected after the user authorized choosing
+recommended components; they are not asserted to be the unidentified original models.
+
 ### Electronic circuit
+
+![Recommended sensor and active-high relay connections](hardware/relay/wiring.svg)
+
+[Relay connection list and power/load limits](hardware/relay/README.md).
+The original GPIO17/27 behavior is retained. Test without a pump first.
+The following MOSFET assembly remains an alternative reference:
 
 ![Reference electronic circuit: Raspberry Pi sensor and externally powered pump driver](hardware/wiring.svg)
 

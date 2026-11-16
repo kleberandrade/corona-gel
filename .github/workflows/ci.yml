@@ -25,6 +25,9 @@ jobs:
       - name: Generate example assets and test installation
         run: |
           java -Djava.awt.headless=true examples/GenerateImages.java "$RUNNER_TEMP/corona-images"
+          java -Djava.awt.headless=true examples/GenerateImages.java "$RUNNER_TEMP/corona-portrait" --portrait
+          java -Djava.awt.headless=true -cp target/corona-gel.jar examples/CapturePreview.java "$RUNNER_TEMP/corona-portrait" "$RUNNER_TEMP/application-preview.png"
+          test -s "$RUNNER_TEMP/application-preview.png"
           ./install.sh "$RUNNER_TEMP/corona-app"
           test -x "$RUNNER_TEMP/corona-app/run.sh"
           sh -n install.sh update.sh scripts/install.sh "$RUNNER_TEMP/corona-app/run.sh"
