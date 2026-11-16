@@ -20,6 +20,8 @@ jobs:
           java-version: '21'
           cache: maven
       - run: ./mvnw --batch-mode --no-transfer-progress clean verify
+      - name: Autostart behavior and Linux single-instance tests
+        run: python3 -m unittest discover -s tests -v
       - name: Headless example
         run: java -cp target/corona-gel.jar com.kleberandrade.coronagel.views.MainConsole
       - name: Generate example assets and test installation
@@ -30,4 +32,5 @@ jobs:
           test -s "$RUNNER_TEMP/application-preview.png"
           ./install.sh "$RUNNER_TEMP/corona-app"
           test -x "$RUNNER_TEMP/corona-app/run.sh"
+          test -f "$RUNNER_TEMP/corona-app/autostart.py"
           sh -n install.sh update.sh scripts/install.sh "$RUNNER_TEMP/corona-app/run.sh"

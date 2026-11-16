@@ -1,0 +1,115 @@
+Autostart quality snapshot — 2026-11-16
+
+Java: clean Maven verify, 24 passing tests.
+Python CLI: 13 tests, 11 passing on macOS, 2 Linux flock cases skipped locally.
+Linux x64/ARM64 CI runs all 13 with fake Java and no GPIO.
+Coverage.py 7.10.7, temporary tool environment: 100% statements, 99% combined
+statement/branch coverage for scripts/autostart.py through CLI subprocesses.
+The non-CLI import path is the unexercised branch.
+
+crapper --use-existing-coverage --threshold 9.99
+CRAP Report
+===========
+Languages: java, python
+
+Function                       Namespace                                               CC    Cov%     CRAP
+----------------------------------------------------------------------------------------------------------
+main                           CapturePreview                                           2   0.0%      6.0
+render                         CapturePreview                                           2   0.0%      6.0
+copy                           GenerateImages                                           2   0.0%      6.0
+dimensions                     GenerateImages                                           2   0.0%      6.0
+generate                       GenerateImages                                           2   0.0%      6.0
+layout                         GenerateImages                                           2   0.0%      6.0
+main                           GenerateImages                                           2   0.0%      6.0
+update                         com.kleberandrade.coronagel.control.Dispenser            6 100.0%      6.0
+setActive                      com.kleberandrade.coronagel.sensors.Pi4jPorts            2   0.0%      6.0
+createHardwarePorts            com.kleberandrade.coronagel.views.Main                   2   0.0%      6.0
+createPorts                    com.kleberandrade.coronagel.views.Main                   2   0.0%      6.0
+formWindowClosing              com.kleberandrade.coronagel.views.Main                   2   0.0%      6.0
+main                           com.kleberandrade.coronagel.views.MainConsole            2   0.0%      6.0
+paintComponent                 com.kleberandrade.coronagel.components.CarouselSlider    4 100.0%      4.0
+perform                        scripts.autostart                                        4 100.0%      4.0
+actionPerformed                com.kleberandrade.coronagel.components.CarouselSlider    3 100.0%      3.0
+armWhenReleased                com.kleberandrade.coronagel.control.Dispenser            3 100.0%      3.0
+dispenseWhenStable             com.kleberandrade.coronagel.control.Dispenser            3 100.0%      3.0
+notifyChange                   com.kleberandrade.coronagel.sensors.SensorManager        3 100.0%      3.0
+poll                           com.kleberandrade.coronagel.sensors.SensorManager        3 100.0%      3.0
+start                          com.kleberandrade.coronagel.sensors.SensorManager        3 100.0%      3.0
+check_launcher                 scripts.autostart                                        3 100.0%      3.0
+installed_app                  scripts.autostart                                        3 100.0%      3.0
+java21                         scripts.autostart                                        3 100.0%      3.0
+read_config                    scripts.autostart                                        3 100.0%      3.0
+remove_block                   scripts.autostart                                        3 100.0%      3.0
+verify_java                    scripts.autostart                                        3 100.0%      3.0
+without_managed_block          scripts.autostart                                        3 100.0%      3.0
+isImage                        com.kleberandrade.coronagel.helpers.FileHelper           2  70.0%      2.1
+onEdt                          com.kleberandrade.coronagel.components.CarouselSlider    2  75.0%      2.1
+background                     GenerateImages                                           1   0.0%      2.0
+content                        GenerateImages                                           1   0.0%      2.0
+droplet                        GenerateImages                                           1   0.0%      2.0
+hand                           GenerateImages                                           1   0.0%      2.0
+header                         GenerateImages                                           1   0.0%      2.0
+illustration                   GenerateImages                                           1   0.0%      2.0
+render                         GenerateImages                                           1   0.0%      2.0
+step                           GenerateImages                                           1   0.0%      2.0
+text                           GenerateImages                                           1   0.0%      2.0
+write                          GenerateImages                                           1   0.0%      2.0
+finishTransition               com.kleberandrade.coronagel.components.CarouselSlider    2 100.0%      2.0
+setDetected                    com.kleberandrade.coronagel.components.CarouselSlider    2 100.0%      2.0
+stopAtDeadline                 com.kleberandrade.coronagel.control.Dispenser            2 100.0%      2.0
+waitForRelease                 com.kleberandrade.coronagel.control.Dispenser            2 100.0%      2.0
+getFolderFiles                 com.kleberandrade.coronagel.helpers.FileHelper           2 100.0%      2.0
+write                          com.kleberandrade.coronagel.helpers.LogHelper            1   0.0%      2.0
+hideCursor                     com.kleberandrade.coronagel.helpers.MouseHelper          1   0.0%      2.0
+getImage                       com.kleberandrade.coronagel.models.SlideImage            1   0.0%      2.0
+getWidth                       com.kleberandrade.coronagel.models.SlideImage            1   0.0%      2.0
+getX                           com.kleberandrade.coronagel.models.SlideImage            1   0.0%      2.0
+setX                           com.kleberandrade.coronagel.models.SlideImage            1   0.0%      2.0
+close                          com.kleberandrade.coronagel.sensors.Pi4jPorts            1   0.0%      2.0
+detected                       com.kleberandrade.coronagel.sensors.Pi4jPorts            1   0.0%      2.0
+close                          com.kleberandrade.coronagel.sensors.SensorManager        2 100.0%      2.0
+dispose                        com.kleberandrade.coronagel.sensors.SensorManager        1   0.0%      2.0
+close                          com.kleberandrade.coronagel.sensors.SimulatedPorts       1   0.0%      2.0
+detect                         com.kleberandrade.coronagel.sensors.SimulatedPorts       1   0.0%      2.0
+detected                       com.kleberandrade.coronagel.sensors.SimulatedPorts       1   0.0%      2.0
+setActive                      com.kleberandrade.coronagel.sensors.SimulatedPorts       1   0.0%      2.0
+bindSimulation                 com.kleberandrade.coronagel.views.Main                   1   0.0%      2.0
+initComponents                 com.kleberandrade.coronagel.views.Main                   1   0.0%      2.0
+initialize                     com.kleberandrade.coronagel.views.Main                   1   0.0%      2.0
+main                           com.kleberandrade.coronagel.views.Main                   1   0.0%      2.0
+disable                        scripts.autostart                                        2 100.0%      2.0
+enable                         scripts.autostart                                        2 100.0%      2.0
+drawSlides                     com.kleberandrade.coronagel.components.CarouselSlider    1 100.0%      1.0
+getCurrentImage                com.kleberandrade.coronagel.components.CarouselSlider    1 100.0%      1.0
+getNextImage                   com.kleberandrade.coronagel.components.CarouselSlider    1 100.0%      1.0
+getSensorImage                 com.kleberandrade.coronagel.components.CarouselSlider    1 100.0%      1.0
+setTimer                       com.kleberandrade.coronagel.components.CarouselSlider    1 100.0%      1.0
+stop                           com.kleberandrade.coronagel.components.CarouselSlider    1 100.0%      1.0
+turnOff                        com.kleberandrade.coronagel.components.CarouselSlider    1 100.0%      1.0
+turnOn                         com.kleberandrade.coronagel.components.CarouselSlider    1 100.0%      1.0
+draw                           com.kleberandrade.coronagel.models.SlideImage            1 100.0%      1.0
+getHeight                      com.kleberandrade.coronagel.models.SlideImage            1 100.0%      1.0
+getY                           com.kleberandrade.coronagel.models.SlideImage            1 100.0%      1.0
+setHeight                      com.kleberandrade.coronagel.models.SlideImage            1 100.0%      1.0
+setImage                       com.kleberandrade.coronagel.models.SlideImage            1 100.0%      1.0
+setWidth                       com.kleberandrade.coronagel.models.SlideImage            1 100.0%      1.0
+setY                           com.kleberandrade.coronagel.models.SlideImage            1 100.0%      1.0
+atomic_write                   scripts.autostart                                        1 100.0%      1.0
+launcher                       scripts.autostart                                        1 100.0%      1.0
+main                           scripts.autostart                                        1 100.0%      1.0
+
+dryer --threshold 0.8
+No duplicate candidates found after consolidating the media layouts.
+All six portrait/landscape PNGs were byte-identical after that refactoring.
+
+mutator --use-existing-coverage --max-workers 2
+  --test-command "python3 -m unittest discover -s tests" scripts/autostart.py
+Function              Namespace          Killed  Survived  Uncovered  Sites   Score
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+Total                                        45         0          0     45  100.0%
+
+All 45 manager mutation sites killed. This measures the new Python manager,
+not hardware or the desktop environment. See docs/QUALITY.txt for the separate
+Java policy/UI snapshot; its remaining 0-to-1ms startup-phase equivalent is
+unaffected by this autostart feature.

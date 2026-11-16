@@ -25,8 +25,9 @@
    appended a launcher to `~/.bashrc`, wrote `~/coronagel.sh`, and replaced LXDE
    autostart configuration. Do not delete unrelated entries. The new installer does
    not undo unknown system configuration or modify display-manager files.
-8. Set up any desired desktop autostart yourself using the installed `run.sh`, in a
-   display session. Configure screen blanking through your current desktop settings.
+8. After manual validation, optionally enable the new [Labwc autostart helper](AUTOSTART.md)
+   for hardware startup in a desktop session. Disable it with the documented helper
+   command; desktop auto-login remains an explicit OS setting. Configure screen blanking through your current desktop settings.
    The old unsafe `chmod 777`/LightDM editing is removed. Review and restore previous
    LightDM permissions/configuration using OS administration procedures if necessary.
 

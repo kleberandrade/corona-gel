@@ -202,8 +202,10 @@ cp -R data/figures/. "$HOME/.local/share/corona-gel/data/figures/"
 "$HOME/.local/share/corona-gel/run.sh" -Dcoronagel.hardware=true
 ```
 
-The installer does not add autostart. Validate a manual desktop-session run before
-configuring it with your actual desktop environment.
+The installer does not enable autostart by itself. After validating the manual
+hardware run, follow [automatic startup and disable instructions](AUTOSTART.md).
+The helper starts this same application with the real sensor/relay enabled after
+the Labwc desktop session starts; automatic desktop login is configured separately.
 
 ### Troubleshooting
 

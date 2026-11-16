@@ -4,3 +4,8 @@ target/
 *.iml
 .DS_Store
 data/
+
+__pycache__/
+.coverage*
+coverage.xml
+coverage.lcov

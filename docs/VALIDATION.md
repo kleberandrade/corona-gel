@@ -93,3 +93,29 @@ It ran the clean Maven verification, headless console example, demo image genera
 and local-installation checks. No implementation fix was needed. The documentation
 update recording this result is also published and its own CI run is checked before
 handoff. Hardware and interactive-desktop validation limits above still apply.
+
+## Optional Labwc startup and illustrated media — 2026-11-16
+
+The new autostart helper is tested in isolated temporary configuration/state/app
+paths. No development-host desktop setting was enabled. Python unittest covers
+preservation/idempotence, enable/disable/status, errors, Java 21 selection and file
+permissions. There are 13 tests: 11 pass on the development Mac; 2 require Linux
+`flock` and are explicitly skipped locally, then executed by Linux x64/ARM64 CI with
+fake Java, never GPIO. The Linux-specific cases verify hardware/media arguments and
+that concurrent automatic starts cannot run two Java instances.
+
+A temporary coverage.py 7.10.7 environment measured the Python manager's statements
+and branches through its CLI subprocesses (not a runtime dependency). It reported
+100% statement coverage and 99% combined statement/branch coverage; the remaining
+branch is the non-CLI import path. Mutator initially exposed missing assertions for
+error diagnostics; after adding those, all 45 Python manager mutation sites are
+killed. This scope does not replace the separate Java mutation snapshot or establish
+physical autostart behavior. Java CRAP/duplication checks and image generation were
+also re-run for the changed example code.
+
+The improved portrait/landscape media and the real Swing preview are rendered with
+Java2D/ImageIO and inspected separately. The totem enclosure remains illustrative.
+Reboot, desktop login, real GPIO/relay/pump state and Pi display behavior still need
+physical validation on the installation.
+
+[Autostart quality snapshot](AUTOSTART_QUALITY.txt) records the measured scope.

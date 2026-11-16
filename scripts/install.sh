@@ -4,6 +4,7 @@ ROOT=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
 DEST=${1:-"$HOME/.local/share/corona-gel"}
 [ -f "$ROOT/target/corona-gel.jar" ] || { echo "Build first: ./mvnw clean verify" >&2; exit 1; }
 mkdir -p "$DEST/lib" "$DEST/data/figures/slides" "$DEST/data/figures/sensors"
+cp "$ROOT/scripts/autostart.py" "$DEST/autostart.py"
 cp "$ROOT/target/corona-gel.jar" "$DEST/corona-gel.jar"
 cp "$ROOT"/target/lib/*.jar "$DEST/lib/"
 cat > "$DEST/run.sh" <<'LAUNCHER'
