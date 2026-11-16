@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 820" role="img" aria-labelledby="title desc">
+<title id="title">Corona Gel 5 V reference pump driver</title>
+<desc id="desc">Two circuits share GND. The sensor output has a 10k pull-up to Pi 3.3V and connects to BCM17. BCM27 drives a 1k series resistor then the MOSFET gate with a 100k ground pull-down. Pump negative and diode anode join the drain. Fused external 5V joins pump positive and diode cathode. Both capacitors are across fused power and ground.</desc>
+<style>text{font-family:Arial,sans-serif;fill:#142c40;font-size:16px}.small{font-size:13px}.title{font-size:25px;font-weight:bold}.wire{fill:none;stroke:#213b51;stroke-width:2.5}.box{fill:#eef5fa;stroke:#213b51;stroke-width:2}.dot{fill:#213b51}</style>
+<rect width="1200" height="820" fill="white"/>
+<text x="30" y="40" class="title">Corona Gel • reference assembly • not physically validated</text>
+<text x="30" y="70">Raspberry Pi 3B • BCM17 input / BCM27 active-high output • common GND</text>
+<text x="30" y="115" font-weight="bold">SENSOR: 3.3 V ONLY</text>
+<text x="620" y="115" font-weight="bold">DRIVER: SEPARATE EXTERNAL 5 V SUPPLY</text>
+<!-- Sensor: receiver open collector and an external pull-up. -->
+<rect x="45" y="265" width="300" height="180" rx="10" class="box"/>
+<text x="65" y="300" font-weight="bold">Adafruit 2168 break-beam pair</text>
+<text x="65" y="332">TX + RX red: 3.3 V</text>
+<text x="65" y="365">RX white/yellow: signal</text>
+<text x="65" y="398">TX + RX black: GND</text>
+<text x="65" y="426" class="small">Beam blocked → LOW (open collector)</text>
+<path d="M45 325 H25 V180 H450 V235 M450 285 V360 H345 M345 395 H380 V570 H450 M450 360 H540" class="wire"/>
+<rect x="440" y="235" width="20" height="50" fill="white" stroke="#213b51" stroke-width="2"/>
+<circle cx="450" cy="360" r="4" class="dot"/>
+<text x="70" y="170">Pi 3.3 V / physical pin 1</text>
+<text x="310" y="255">R1 10 kΩ</text>
+<text x="410" y="335">BCM17</text>
+<text x="410" y="390" class="small">Physical pin 11</text>
+<text x="395" y="600">GND</text>
+<!-- Pump: named MOSFET terminals and diode polarity. -->
+<rect x="785" y="445" width="175" height="105" rx="8" class="box"/>
+<text x="805" y="472" font-weight="bold">Q1 IRLML2502</text>
+<text x="805" y="497" class="small">G: pin 1 (left)</text>
+<text x="805" y="517" class="small">D: pin 3 (top)</text>
+<text x="805" y="537" class="small">S: pin 2 (bottom)</text>
+<!-- GPIO gate drive with pull-down. -->
+<path d="M610 490 H650 M690 490 H785 M740 490 V540 M740 580 V620 H1135 M870 550 V620" class="wire"/>
+<rect x="650" y="480" width="40" height="20" fill="white" stroke="#213b51" stroke-width="2"/>
+<rect x="730" y="540" width="20" height="40" fill="white" stroke="#213b51" stroke-width="2"/>
+<circle cx="740" cy="490" r="4" class="dot"/>
+<circle cx="870" cy="620" r="4" class="dot"/>
+<text x="600" y="440">BCM27 / physical pin 13</text>
+<text x="645" y="468" class="small">R2 1 kΩ</text>
+<text x="600" y="570" class="small">R3 100 kΩ</text>
+<text x="825" y="647">GND / Pi physical pin 6</text>
+<!-- Pump external power, fuse and flyback. -->
+<text x="785" y="165">PSU +5 V, current-limited 1 A</text>
+<path d="M870 175 V200 M870 230 V260 H1030 V310 M870 260 V310 M870 360 V400 H1030 V360 M870 400 V445" class="wire"/>
+<rect x="858" y="200" width="24" height="30" fill="white" stroke="#213b51" stroke-width="2"/>
+<text x="905" y="222" class="small">F1 1 A</text>
+<circle cx="870" cy="335" r="25" fill="white" stroke="#213b51" stroke-width="2"/>
+<text x="862" y="342">M</text>
+<text x="650" y="320">5 V DC pump</text>
+<text x="650" y="345" class="small">≤0.5 A stall</text>
+<circle cx="870" cy="260" r="4" class="dot"/>
+<circle cx="870" cy="400" r="4" class="dot"/>
+<rect x="1000" y="310" width="60" height="50" fill="white" stroke="#213b51" stroke-width="2"/>
+<path d="M1000 315 H1060" class="wire"/>
+<text x="1009" y="342" class="small">SS14</text>
+<text x="1068" y="313" class="small">K / band</text>
+<text x="1068" y="358" class="small">A</text>
+<text x="965" y="290" class="small">D1: cathode → +5 V</text>
+<!-- Explicit parallel capacitors across fused power and common ground. -->
+<path d="M1030 260 H1135 V480 M1120 480 H1150 M1120 495 H1150 M1135 495 V620 M1135 260 H1090 V535 M1075 535 H1105 M1075 550 H1105 M1090 550 V620" class="wire"/>
+<circle cx="1030" cy="260" r="4" class="dot"/>
+<circle cx="1135" cy="260" r="4" class="dot"/>
+<circle cx="1090" cy="620" r="4" class="dot"/>
+<text x="1145" y="468" class="small">+</text>
+<text x="975" y="580" class="small">C1 right: 100 µF / 10 V</text>
+<text x="975" y="601" class="small">C2 left: 100 nF</text>
+<rect x="30" y="680" width="1140" height="110" rx="10" fill="#fff4df" stroke="#b88737"/>
+<text x="50" y="709">All GND nets join: Pi physical 6, sensor, Q1 source, capacitor bottoms and external PSU negative.</text>
+<text x="50" y="738">Never connect external pump +5 V to Pi pins. Do not drive a pump or relay coil directly from GPIO.</text>
+<text x="50" y="767">Verify connections.csv and actual package pinouts. See hardware/README.md for limits and primary sources.</text>
+</svg>

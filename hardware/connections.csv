@@ -1,0 +1,13 @@
+net,from,to
+3V3,Raspberry Pi physical pin 1,Sensor TX red and RX red
+3V3,Raspberry Pi physical pin 1,R1 10k pull-up top
+GND,Raspberry Pi physical pin 6,Sensor TX black and RX black
+SENSE,Raspberry Pi BCM17 physical pin 11,Sensor RX white/yellow and R1 bottom
+DRIVE,Raspberry Pi BCM27 physical pin 13,R2 1k input
+GATE,R2 1k output,Q1 IRLML2502 pin 1 and R3 100k top
+GND,Q1 IRLML2502 pin 2,R3 bottom and external PSU negative and Pi physical pin 6
+DRAIN,Q1 IRLML2502 pin 3,Pump negative and D1 SS14 anode
+PUMP_5V,External regulated current-limited 5V PSU positive,F1 1A input
+PUMP_5V_FUSED,F1 output,Pump positive and D1 SS14 cathode band
+DECOUPLE,PUMP_5V_FUSED,C1 100uF positive and C2 100nF top
+GND,External PSU negative,C1 negative and C2 bottom

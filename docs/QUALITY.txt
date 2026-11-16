@@ -1,0 +1,95 @@
+Host quality snapshot — 2026-11-16
+
+Baseline: Java 21 / Maven 3.10.1 / 20 tests green.
+Command environment used a temporary Maven cache and explicit JAVA_HOME.
+CRAP command: crapper --use-existing-coverage --threshold 9.99
+Duplication command: dryer --threshold 0.8
+Mutation command: mutator --use-existing-coverage --max-workers 2
+  --test-command './mvnw -o -q test' src/main/java
+
+CRAP Report
+===========
+Languages: java
+
+Function                       Namespace                                               CC    Cov%     CRAP
+----------------------------------------------------------------------------------------------------------
+main                           GenerateImages                                           2   0.0%      6.0
+update                         com.kleberandrade.coronagel.control.Dispenser            6 100.0%      6.0
+setActive                      com.kleberandrade.coronagel.sensors.Pi4jPorts            2   0.0%      6.0
+createHardwarePorts            com.kleberandrade.coronagel.views.Main                   2   0.0%      6.0
+createPorts                    com.kleberandrade.coronagel.views.Main                   2   0.0%      6.0
+formWindowClosing              com.kleberandrade.coronagel.views.Main                   2   0.0%      6.0
+main                           com.kleberandrade.coronagel.views.MainConsole            2   0.0%      6.0
+paintComponent                 com.kleberandrade.coronagel.components.CarouselSlider    4 100.0%      4.0
+actionPerformed                com.kleberandrade.coronagel.components.CarouselSlider    3 100.0%      3.0
+armWhenReleased                com.kleberandrade.coronagel.control.Dispenser            3 100.0%      3.0
+dispenseWhenStable             com.kleberandrade.coronagel.control.Dispenser            3 100.0%      3.0
+notifyChange                   com.kleberandrade.coronagel.sensors.SensorManager        3 100.0%      3.0
+poll                           com.kleberandrade.coronagel.sensors.SensorManager        3 100.0%      3.0
+start                          com.kleberandrade.coronagel.sensors.SensorManager        3 100.0%      3.0
+isImage                        com.kleberandrade.coronagel.helpers.FileHelper           2  70.0%      2.1
+onEdt                          com.kleberandrade.coronagel.components.CarouselSlider    2  75.0%      2.1
+write                          GenerateImages                                           1   0.0%      2.0
+finishTransition               com.kleberandrade.coronagel.components.CarouselSlider    2 100.0%      2.0
+setDetected                    com.kleberandrade.coronagel.components.CarouselSlider    2 100.0%      2.0
+stopAtDeadline                 com.kleberandrade.coronagel.control.Dispenser            2 100.0%      2.0
+waitForRelease                 com.kleberandrade.coronagel.control.Dispenser            2 100.0%      2.0
+getFolderFiles                 com.kleberandrade.coronagel.helpers.FileHelper           2 100.0%      2.0
+write                          com.kleberandrade.coronagel.helpers.LogHelper            1   0.0%      2.0
+hideCursor                     com.kleberandrade.coronagel.helpers.MouseHelper          1   0.0%      2.0
+getImage                       com.kleberandrade.coronagel.models.SlideImage            1   0.0%      2.0
+getWidth                       com.kleberandrade.coronagel.models.SlideImage            1   0.0%      2.0
+getX                           com.kleberandrade.coronagel.models.SlideImage            1   0.0%      2.0
+setX                           com.kleberandrade.coronagel.models.SlideImage            1   0.0%      2.0
+close                          com.kleberandrade.coronagel.sensors.Pi4jPorts            1   0.0%      2.0
+detected                       com.kleberandrade.coronagel.sensors.Pi4jPorts            1   0.0%      2.0
+close                          com.kleberandrade.coronagel.sensors.SensorManager        2 100.0%      2.0
+dispose                        com.kleberandrade.coronagel.sensors.SensorManager        1   0.0%      2.0
+close                          com.kleberandrade.coronagel.sensors.SimulatedPorts       1   0.0%      2.0
+detect                         com.kleberandrade.coronagel.sensors.SimulatedPorts       1   0.0%      2.0
+detected                       com.kleberandrade.coronagel.sensors.SimulatedPorts       1   0.0%      2.0
+setActive                      com.kleberandrade.coronagel.sensors.SimulatedPorts       1   0.0%      2.0
+bindSimulation                 com.kleberandrade.coronagel.views.Main                   1   0.0%      2.0
+initComponents                 com.kleberandrade.coronagel.views.Main                   1   0.0%      2.0
+initialize                     com.kleberandrade.coronagel.views.Main                   1   0.0%      2.0
+main                           com.kleberandrade.coronagel.views.Main                   1   0.0%      2.0
+drawSlides                     com.kleberandrade.coronagel.components.CarouselSlider    1 100.0%      1.0
+getCurrentImage                com.kleberandrade.coronagel.components.CarouselSlider    1 100.0%      1.0
+getNextImage                   com.kleberandrade.coronagel.components.CarouselSlider    1 100.0%      1.0
+getSensorImage                 com.kleberandrade.coronagel.components.CarouselSlider    1 100.0%      1.0
+setTimer                       com.kleberandrade.coronagel.components.CarouselSlider    1 100.0%      1.0
+stop                           com.kleberandrade.coronagel.components.CarouselSlider    1 100.0%      1.0
+turnOff                        com.kleberandrade.coronagel.components.CarouselSlider    1 100.0%      1.0
+turnOn                         com.kleberandrade.coronagel.components.CarouselSlider    1 100.0%      1.0
+draw                           com.kleberandrade.coronagel.models.SlideImage            1 100.0%      1.0
+getHeight                      com.kleberandrade.coronagel.models.SlideImage            1 100.0%      1.0
+getY                           com.kleberandrade.coronagel.models.SlideImage            1 100.0%      1.0
+setHeight                      com.kleberandrade.coronagel.models.SlideImage            1 100.0%      1.0
+setImage                       com.kleberandrade.coronagel.models.SlideImage            1 100.0%      1.0
+setWidth                       com.kleberandrade.coronagel.models.SlideImage            1 100.0%      1.0
+setY                           com.kleberandrade.coronagel.models.SlideImage            1 100.0%      1.0
+Wrote /Users/kleber/Projects/corona-gel/.metrics/crap.edn
+
+Wrote /Users/kleber/Projects/corona-gel/.metrics/dry.edn
+No duplicate candidates found.
+
+SURVIVED  src/main/java/com/kleberandrade/coronagel/components/CarouselSlider.java:103 - -> +
+SURVIVED  src/main/java/com/kleberandrade/coronagel/sensors/SensorManager.java:32 - -> +
+SURVIVED  src/main/java/com/kleberandrade/coronagel/sensors/SensorManager.java:32 0 -> 1
+Function            Namespace                                              Killed  Survived  Uncovered  Sites   Score
+---------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------
+Total                                                                          47         3         26     76   94.0%
+
+Mutation scope: 47 killed, 3 survived, 26 uncovered, 76 sites total.
+The pure Dispenser policy has 13 killed / 0 survived / 0 uncovered.
+Survivor classification:
+- CarouselSlider initial-delay subtraction changed to addition: real animation
+  cadence is a remaining test gap. Pixel/virtual-event tests do not verify it.
+- SensorManager nanoTime origin subtraction changed to addition: changes the
+  constant clock offset; elapsed differences in the exercised uptime range agree.
+- SensorManager initial scheduling delay changed from 0 to 1 ms: both satisfy
+  asynchronous startup; no exact first-poll instant is promised.
+
+Do not read the 94.0% tool score as full-project mutation coverage: uncovered
+hardware/fullscreen paths are excluded from that ratio. No Raspberry Pi tested.
