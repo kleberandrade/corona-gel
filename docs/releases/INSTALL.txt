@@ -1,0 +1,63 @@
+Corona Gel @VERSION@ — Raspberry Pi 3B / Linux ARM64 / Java 21
+
+This archive contains the compiled application, its unchanged runtime dependency
+JARs/notices, portrait demo media, run.sh, the optional autostart manager and MIT
+license. A JAR alone is not the complete distribution: keep lib/ beside it.
+
+Requirements
+- Raspberry Pi 3B, Raspberry Pi OS Desktop 64-bit based on Trixie (or the documented
+  supported Bookworm setup), Java 21 with java.desktop.
+- Python 3 and util-linux flock for optional Labwc autostart.
+- Correct GPIO device permissions and a reviewed 3.3V-safe active-low sensor /
+  active-high relay interface on BCM17/27. Physical/electrical checks remain yours.
+
+Download both the .tar.gz and SHA256SUMS from the same GitHub release. In the
+download directory, verify and extract:
+
+  sha256sum -c SHA256SUMS
+  tar -xzf corona-gel-@VERSION@-linux-arm64.tar.gz
+  cd corona-gel-@VERSION@
+  ./run.sh
+
+The first run is simulation, in a desktop session. Hold Space for detection;
+Alt+F4 closes the kiosk. The included media is portrait; replace data/figures/slides
+and data/figures/sensors with your own correctly oriented PNG/JPEG files as needed.
+
+After reviewing wiring and testing with the pump disconnected, opt into real GPIO:
+
+  ./run.sh -Dcoronagel.hardware=true
+
+Optional automatic startup from this extracted directory (keep its path stable):
+
+  python3 autostart.py enable --app-dir "$PWD" \
+    --java /usr/lib/jvm/java-21-openjdk-arm64/bin/java
+
+Also configure desktop automatic login using sudo raspi-config so the Labwc session
+starts at power-on. To disable future automatic starts, as the same desktop user:
+
+  python3 autostart.py disable
+  python3 autostart.py status
+
+Disabling autostart does not close the current app; use Alt+F4. Logs are under
+${XDG_STATE_HOME:-$HOME/.local/state}/corona-gel/autostart.log. Close an automatic
+instance before launching a manual one. Do not run the kiosk as root.
+
+Updating from an older installation
+- Back up custom media/configuration first. Extract this version into a new directory.
+- Close the old application before starting this one; do not mix old/new lib/ JARs.
+- Copy your media to the new data/figures folders. Re-run enable with the new
+  --app-dir if switching an existing autostart configuration to this version.
+- Java 8/WiringPi-era installations need the Java 21/OS/GPIO migration described below.
+
+Immutable versioned documentation:
+https://github.com/kleberandrade/corona-gel/blob/v@VERSION@/docs/RASPBERRY_PI.md
+https://github.com/kleberandrade/corona-gel/blob/v@VERSION@/hardware/relay/README.md
+https://github.com/kleberandrade/corona-gel/blob/v@VERSION@/docs/AUTOSTART.md
+https://github.com/kleberandrade/corona-gel/blob/v@VERSION@/docs/MIGRATION.md
+
+Validation limits
+Host and Linux ARM64/x64 CI exercise software, packaging, examples and fake-port /
+fake-Java behavior. They do not establish physical Pi GPIO, relay, pump, boot,
+interactive fullscreen behavior, fluid compatibility or clinical efficacy. This is
+software timing on Linux, not a hard real-time cutoff. Use appropriate physical
+power-disconnect/protection for the actual equipment.

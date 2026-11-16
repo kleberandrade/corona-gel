@@ -157,3 +157,28 @@ as well, leaving no authorized publication step pending.
 - Dryer found identical portrait/landscape instruction-layout functions. Consolidated
   the layout data, then proved all six generated PNGs byte-identical. Final dryer
   result has no candidates at 0.8; maximum reported CRAP is 6 with measured coverage.
+
+## v2.0.0 release preparation — 2026-11-16
+
+- Inspected GitHub releases/tags: only v1.0-alpha existed; kept the declared Maven
+  2.0.0 version for the new major release, preserving the old release/tag.
+- Wrote failing archive/checksum tests, then added a standard-library packager that
+  stages the verified installer output and portrait demo media with licenses and a
+  binary-specific README. Required runtime JARs/notices remain unchanged.
+- Normalized archive ownership/modes/timestamps and gzip headers. Tested complete
+  contents, executable launcher, reproducibility after input mtime changes, actual
+  checksum bytes and link rejection. This is archive reproducibility for identical
+  input files, not a cross-OS font-rendering equivalence claim.
+- Added main-CI packaging smoke checks on x64/ARM64 and a tag release workflow on
+  ARM64. It checks version/notes, builds/tests, verifies checksum/extracted console
+  execution, uploads assets to a draft, then publishes the complete GitHub release.
+- Wrote English release notes and installation/migration instructions with explicit
+  Java 21 requirements, safe simulation default and unperformed physical-test limits.
+
+- Local release checks passed: 24 Java tests; 20 Python tests with the two Linux-only
+  flock cases skipped on macOS. The packaged console runs after extraction, launcher
+  syntax and checksum verify, and every runtime dependency is byte-identical to the
+  verified build. Added full staging/idempotence and failure-propagation cases after
+  mutation analysis exposed gaps; final packaging scope is 26 killed / 0 survived /
+  2 uncovered CLI-error-handler sites. Maximum CRAP remained 6 and dryer found no
+  candidates at 0.8 before the expanded tests. Physical validation remains unclaimed.

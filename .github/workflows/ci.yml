@@ -34,3 +34,11 @@ jobs:
           test -x "$RUNNER_TEMP/corona-app/run.sh"
           test -f "$RUNNER_TEMP/corona-app/autostart.py"
           sh -n install.sh update.sh scripts/install.sh "$RUNNER_TEMP/corona-app/run.sh"
+      - name: Release package smoke check
+        run: |
+          python3 scripts/package_release.py
+          (cd target/release && sha256sum -c SHA256SUMS)
+          mkdir -p "$RUNNER_TEMP/release-smoke"
+          tar -xzf target/release/corona-gel-*-linux-arm64.tar.gz -C "$RUNNER_TEMP/release-smoke"
+          java -cp "$RUNNER_TEMP/release-smoke"/corona-gel-*/corona-gel.jar com.kleberandrade.coronagel.views.MainConsole
+          sh -n "$RUNNER_TEMP/release-smoke"/corona-gel-*/run.sh

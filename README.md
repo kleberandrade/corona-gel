@@ -39,6 +39,15 @@ Pi4J **3.0.4** is the latest 3.x release selected for Java 21. The
 uses GpioD, BCM17 for input and BCM27 for active-high output, on gpiochip0.
 It does not use the old WiringPi backend or a pigpio daemon.
 
+## Prebuilt release
+
+Download the application archive and `SHA256SUMS` from
+[GitHub Releases](https://github.com/kleberandrade/corona-gel/releases/latest).
+Verify the checksum, extract the archive and follow its `README.txt`. It includes
+`lib/`, demo media, `run.sh` and the optional autostart helper; Java 21 must already
+be installed. No Maven/source build is needed to run the prebuilt distribution.
+The GitHub-generated source ZIP/tarball is a different download.
+
 ## Quick start: no hardware
 
 ```sh
