@@ -67,3 +67,12 @@ A running JVM and functioning native GPIO backend are required to enforce timing
 Disconnected-high input cannot be distinguished from idle. Hardware, pump/fluids,
 operating-system permissions, real kiosk display and electrical behavior need checks
 on the actual assembly. These are documented validation limits, not claimed results.
+
+## Publication and default-branch migration — 2026-11-16
+
+The user subsequently authorized pushing the three modernization commits, changing
+`master` to `main`, and following GitHub Actions through a successful run, including
+fixes if needed. The original no-push boundary above describes the initial phase.
+The CI branch filter and README badge/usage references were changed to `main`;
+historical baseline references remain unchanged. The GitHub branch rename preserves
+repository history and updates the default branch through the GitHub API.

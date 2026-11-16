@@ -3,7 +3,7 @@
 [![Java 21](https://img.shields.io/badge/Java-21-007396)](https://www.pi4j.com/about/info-v3/)
 [![Pi4J 3.0.4](https://img.shields.io/badge/Pi4J-3.0.4-blue)](https://www.pi4j.com/about/release-notes/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green)](LICENSE)
-[![Java CI](https://github.com/kleberandrade/corona-gel/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/kleberandrade/corona-gel/actions/workflows/ci.yml)
+[![Java CI](https://github.com/kleberandrade/corona-gel/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/kleberandrade/corona-gel/actions/workflows/ci.yml)
 
 A Java/Swing image kiosk with timed dispenser control, originally created by
 **Kléber de Oliveira Andrade** for a Raspberry Pi 3B. It cycles through local images,
@@ -126,7 +126,7 @@ JUnit **6.1.3** tests cover pulse/cooldown boundaries, noise, stuck input, delay
 I/O errors, output shutdown, image filtering and headless Swing rendering/transitions.
 JaCoCo **0.8.16** writes a report to `target/site/jacoco/index.html`. See
 [validation evidence and gaps](docs/VALIDATION.md); no coverage or passing-test badge
-is asserted. CI builds on Java 21 for pushes to `master` and pull requests. Its badge
+is asserted. CI builds on Java 21 for pushes to `main` and pull requests. Its badge
 only has a remote result after this workflow is published and runs on GitHub.
 
 Source responsibilities:
