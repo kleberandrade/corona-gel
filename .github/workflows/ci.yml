@@ -1,0 +1,26 @@
+name: Java CI
+on:
+  push:
+    branches: [master]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-java@v6.3.0
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+      - run: ./mvnw --batch-mode --no-transfer-progress clean verify
+      - name: Headless example
+        run: java -cp target/corona-gel.jar com.kleberandrade.coronagel.views.MainConsole
+      - name: Generate example assets and test installation
+        run: |
+          java -Djava.awt.headless=true examples/GenerateImages.java "$RUNNER_TEMP/corona-images"
+          ./install.sh "$RUNNER_TEMP/corona-app"
+          test -x "$RUNNER_TEMP/corona-app/run.sh"
+          sh -n install.sh update.sh scripts/install.sh "$RUNNER_TEMP/corona-app/run.sh"
