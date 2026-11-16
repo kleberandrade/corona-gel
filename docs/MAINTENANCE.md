@@ -76,3 +76,11 @@ fixes if needed. The original no-push boundary above describes the initial phase
 The CI branch filter and README badge/usage references were changed to `main`;
 historical baseline references remain unchanged. The GitHub branch rename preserves
 repository history and updates the default branch through the GitHub API.
+
+Remote synchronization confirmed no intervening commits before publication. GitHub
+confirmed `main` as the default branch, and stale `origin/master` tracking was
+pruned. [Java CI run 43800805976](https://github.com/kleberandrade/corona-gel/actions/runs/43800805976) passed at
+`6cc2fc1` on its first execution; no application/CI correction was required. README
+and validation notes were updated to distinguish this remote result from the
+initial local-only report. The final documentation commit is published and monitored
+as well, leaving no authorized publication step pending.

@@ -126,8 +126,8 @@ JUnit **6.1.3** tests cover pulse/cooldown boundaries, noise, stuck input, delay
 I/O errors, output shutdown, image filtering and headless Swing rendering/transitions.
 JaCoCo **0.8.16** writes a report to `target/site/jacoco/index.html`. See
 [validation evidence and gaps](docs/VALIDATION.md); no coverage or passing-test badge
-is asserted. CI builds on Java 21 for pushes to `main` and pull requests. Its badge
-only has a remote result after this workflow is published and runs on GitHub.
+is asserted. CI builds on Java 21 for pushes to `main` and pull requests. The badge
+links to the live GitHub Actions result; recorded validation is in the report above.
 
 Source responsibilities:
 

@@ -72,10 +72,22 @@ Do not infer full-project mutation adequacy from the policy's result.
   fluid compatibility, hard real-time cutoff or independent hardware watchdog checks.
 - Interactive fullscreen window/input, desktop autostart, screen blanking or Pi GPU
   behavior. Headless pixel checks cover rendering paths only.
-- Remote GitHub Actions execution: workflow exists locally on `master`, pending
-  separately authorized push. No remote pass/coverage badge claim is made.
 - Sanitation, clinical or disease-prevention validation.
 
 JaCoCo's complete report is generated at `target/site/jacoco/index.html`. Hardware
 adapter, fullscreen window and cursor paths are intentionally unexecuted on this
 host. These gaps must remain visible when assessing deployment readiness.
+
+## Remote CI after authorized publication — 2026-11-16
+
+The default branch was renamed from `master` to `main` through GitHub's branch-rename
+API. The three original modernization commits and the branch-reference adjustment
+were pushed without rewriting their history. `origin/HEAD` and local tracking now
+point to `main`; the old remote branch name no longer exists.
+
+[Java CI run 43800805976](https://github.com/kleberandrade/corona-gel/actions/runs/43800805976) completed successfully on commit
+`6cc2fc16184890f450704674380bf4a8d2496167`, using the Ubuntu runner and Temurin 21.
+It ran the clean Maven verification, headless console example, demo image generation
+and local-installation checks. No implementation fix was needed. The documentation
+update recording this result is also published and its own CI run is checked before
+handoff. Hardware and interactive-desktop validation limits above still apply.
