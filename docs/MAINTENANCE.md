@@ -84,3 +84,26 @@ pruned. [Java CI run 43800805976](https://github.com/kleberandrade/corona-gel/ac
 and validation notes were updated to distinguish this remote result from the
 initial local-only report. The final documentation commit is published and monitored
 as well, leaving no authorized publication step pending.
+
+## Survivor review and README illustrations — 2026-11-16
+
+- Re-read all three survivors. Corrected the prior clock-origin equivalence claim:
+  the zero-initialized release baseline makes the addition mutant observable.
+- Wrote the new behavior tests first and observed missing-constructor failures.
+  Added package-private timer/clock/executor injection while preserving public
+  defaults: Swing Timer, System.nanoTime and the real Raspberry Pi GPIO adapter.
+- Verified complete scheduled carousel cycles, pause/release restart, short initial
+  release and negative/nonzero nanoTime origins. Mutator now kills both real gaps;
+  the remaining initial-delay phase change is documented, without hiding it.
+- Clean verification: 24 tests. CRAP maximum 6; dryer found no duplicates at 0.8.
+  Full-source mutation: 49 killed, 1 contract-equivalent survivor, 26 uncovered.
+- Generated a product-concept PNG with the built-in image tool, inspected the image,
+  and saved it under docs/images with its exact prompt and provenance. Embedded both
+  the concept and the editable electronic schematic directly in the English README.
+- Kept Raspberry Pi 3B, Java/Swing, original pin mapping and output polarity. Added
+  Pi setup/runtime requirements and clarified that the MOSFET reference is optional
+  for a correctly driven compatible relay installation. Checked primary Pi4J/GitHub
+  documentation and the aarch64/armhf libraries embedded in Pi4J's runtime JAR.
+- Expanded CI to Linux x64 and ARM64. This validates CPU/runtime paths without
+  claiming Raspberry Pi OS, physical GPIO, pump or interactive-desktop validation.
+- User authorized push to main and monitoring CI to completion for this change.

@@ -11,13 +11,20 @@ displays a sensor image while dispensing, and controls a low-voltage driver from
 digital hand-detection input. The project name is historical: the software makes no
 sanitation, dosage, disease-prevention, or medical efficacy claim.
 
+## Totem concept
+
+![Illustrative Corona Gel totem with screen, hand sensor and dispenser](docs/images/corona-gel-totem.png)
+
+AI-generated product concept, not a photograph of the original installation or a
+validated enclosure design. [Image provenance and prompt](docs/images/README.md).
+
 ## Requirements
 
 - **JDK 21**, including Swing/Desktop for the kiosk; headless mode works for tests
   and the console example. Java 21 is the validated target.
 - Maven **3.10.1**, downloaded automatically by the included Maven Wrapper, plus
   network access on the first build. No IDE or locally copied JARs are required.
-- Real GPIO: Raspberry Pi 3B with 64-bit Raspberry Pi OS, a JDK 21 for that system,
+- Real GPIO: Raspberry Pi 3B with 64-bit Raspberry Pi OS (Bookworm or newer), a JDK 21 for that system,
   access to `/dev/gpiochip0`, and a reviewed driver/sensor assembly. See
   [hardware requirements and wiring](hardware/README.md).
 
@@ -66,6 +73,22 @@ Keep `target/lib/` beside the JAR: the manifest points to those versioned depend
 Logging goes to standard error through Java logging/SLF4J; redirect it if needed.
 
 ## GPIO operation
+
+The original Raspberry Pi 3B remains the hardware target: a Java/Swing kiosk,
+active-low digital input on BCM17 (physical 11), and active-high driver output on
+BCM27 (physical 13). The original 1.5 s pulse and 4 s cooldown are retained. See
+[setup and compatibility checks on Raspberry Pi](docs/RASPBERRY_PI.md).
+
+### Electronic circuit
+
+![Reference electronic circuit: Raspberry Pi sensor and externally powered pump driver](hardware/wiring.svg)
+
+This is the documented **unbuilt reference assembly**, with a 3.3 V sensor, separate
+5 V pump supply, MOSFET driver and flyback protection. The original relay/sensor
+connection contract is preserved in software; this MOSFET circuit is an alternative
+reference, not a required replacement for a correctly driven, compatible relay.
+The [historical circuit image](hardware/legacy/eletronic.png) and
+[Fritzing source](hardware/legacy/eletronic.fzz) remain unchanged for provenance.
 
 Read [the BOM, connection list and reference circuit](hardware/README.md) before
 choosing real components. The historical sensor and relay were not fully specified;
@@ -123,10 +146,12 @@ a manual simulation/hardware check; see [migration](docs/MIGRATION.md).
 ```
 
 JUnit **6.1.3** tests cover pulse/cooldown boundaries, noise, stuck input, delayed polls,
-I/O errors, output shutdown, image filtering and headless Swing rendering/transitions.
+I/O errors, output shutdown, arbitrary monotonic-clock origins, image filtering and
+headless Swing rendering/transitions. Virtual timers exercise the complete scheduled
+7-second slide cycle and pause/resume without relying on wall-clock sleeps.
 JaCoCo **0.8.16** writes a report to `target/site/jacoco/index.html`. See
 [validation evidence and gaps](docs/VALIDATION.md); no coverage or passing-test badge
-is asserted. CI builds on Java 21 for pushes to `main` and pull requests. The badge
+is asserted. CI builds on Java 21 on Linux x64 and ARM64 for pushes to `main` and pull requests. The badge
 links to the live GitHub Actions result; recorded validation is in the report above.
 
 Source responsibilities:
