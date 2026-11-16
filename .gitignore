@@ -1,7 +1,6 @@
-**/nbproject/private/
-**/nbproject/Makefile-*.mk
-**/nbproject/Package-*.bash
-build/
-nbbuild/
-nbdist/
-.nb-gradle/
+target/
+.metrics/
+.idea/
+*.iml
+.DS_Store
+data/
