@@ -10,6 +10,13 @@ This **unbuilt reference assembly** uses the same active-low sensor / active-hig
 output contract as the software, with a specified low-voltage pump driver. It does
 not claim compatibility with an unidentified relay module or its polarity.
 
+## Proximity sensor and relay option
+
+For the original sensor-plus-relay style of operation, see the separately documented
+[Pololu #5552 / Adafruit #4409 relay assembly](relay/README.md). It includes its own
+net list and unloaded test procedure. The MOSFET assembly below remains an alternative;
+do not combine their output wiring or assume their component lists are interchangeable.
+
 ## Bill of materials
 
 - Raspberry Pi 3B with 64-bit Raspberry Pi OS, microSD, HDMI display and a dedicated

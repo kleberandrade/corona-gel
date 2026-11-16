@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 820" role="img" aria-labelledby="title desc">
+<title id="title">Raspberry Pi 3B proximity sensor and active-high relay wiring</title>
+<desc id="desc">Pololu 5552 VIN at Pi 3.3V physical 1, GND at physical 6, OUT to BCM17 physical 11. BCM27 physical 13 drives Adafruit 4409 white Signal with 10k pull-down. Relay red V+ uses fused external 5V and black ground joins Pi and external ground. First test leaves load contacts empty. Pump load uses COM to fused 5V, NO to pump positive and pump negative to ground. SS14 flyback band at pump positive.</desc>
+<style>text{font:17px Arial,sans-serif;fill:#16334b}.heading{font-size:25px;font-weight:bold}.small{font-size:14px}.box{fill:#edf5fa;stroke:#284b63;stroke-width:2}.wire{fill:none;stroke:#284b63;stroke-width:2.5}.dot{fill:#284b63}</style>
+<rect width="1200" height="820" fill="white"/>
+<text x="35" y="45" class="heading">Raspberry Pi 3B • recommended sensor + relay</text>
+<text x="35" y="77">Preserves BCM17 active-low input / BCM27 active-high output • not physically validated</text>
+<rect x="35" y="155" width="265" height="235" rx="10" class="box"/>
+<text x="55" y="190" font-weight="bold">Pololu #5552, v2 10 cm</text>
+<text x="55" y="230">VIN: 3.3 V only here</text>
+<text x="55" y="285">OUT: LOW when detected</text>
+<text x="55" y="340">GND</text>
+<text x="55" y="373" class="small">EN: leave default enabled</text>
+<rect x="430" y="155" width="300" height="340" rx="10" class="box"/>
+<text x="450" y="190" font-weight="bold">Raspberry Pi 3B</text>
+<text x="450" y="230">Physical 1: 3.3 V</text>
+<text x="450" y="285">Physical 11: BCM17</text>
+<text x="450" y="340">Physical 6: GND</text>
+<text x="450" y="405">Physical 13: BCM27</text>
+<text x="450" y="465" class="small">Dedicated Pi supply</text>
+<path d="M300 225 H430 M300 280 H430 M300 335 H430 M730 400 H820" class="wire"/>
+<rect x="820" y="155" width="345" height="340" rx="10" class="box"/>
+<text x="840" y="190" font-weight="bold">Adafruit #4409 STEMMA</text>
+<text x="840" y="232">Red V+: external fused +5 V</text>
+<text x="840" y="286">Black Ground: common GND</text>
+<text x="840" y="342" class="small">On-board driver + coil protection</text>
+<text x="840" y="405">White Signal: 3.3 V HIGH = ON</text>
+<text x="840" y="465" class="small">LOW: COM–NC / HIGH: COM–NO</text>
+<path d="M760 400 V445 M750 445 H770 V475 H750 Z M760 475 V535 H360 V335 M360 335 H430 M760 535 H790 V280 H820" class="wire"/>
+<circle cx="360" cy="335" r="4" class="dot"/>
+<circle cx="760" cy="400" r="4" class="dot"/>
+<text x="600" y="522" class="small">R1 10 kΩ pull-down to GND</text>
+<text x="35" y="455" class="small">C1 10 µF + C2 100 nF</text>
+<text x="35" y="477" class="small">across sensor VIN/GND</text>
+<text x="35" y="499" class="small">Observe C1 polarity.</text>
+<text x="35" y="565">COMMON GND: Pi physical 6 + sensor GND + relay black + external PSU negative</text>
+<rect x="35" y="595" width="1130" height="185" rx="10" fill="#fff4df" stroke="#bd8931"/>
+<text x="55" y="627" font-weight="bold">First test: leave COM / NO / NC completely disconnected from the pump.</text>
+<text x="55" y="661">After load review: external +5 V → F1 (1 A) → relay COM; relay NO → pump positive.</text>
+<text x="55" y="691">Pump negative → external PSU negative. NC unused. Only a reviewed 5 V DC load is covered.</text>
+<text x="55" y="721">D1 SS14 across pump: cathode/band → pump positive (after NO); anode → pump negative.</text>
+<text x="55" y="751">Relay red V+ also uses fused +5 V. Never connect that external +5 V to Pi GPIO/3.3 V.</text>
+</svg>

@@ -1,0 +1,14 @@
+net,from,to
+SENSOR_3V3,Pi physical pin 1 3.3V,Pololu 5552 VIN
+GND,Pi physical pin 6,Pololu 5552 GND
+SENSE,Pololu 5552 OUT,Pi BCM17 physical pin 11
+DRIVE,Pi BCM27 physical pin 13,Adafruit 4409 STEMMA white Signal and R1 10k top
+GND,R1 10k bottom,Pi physical pin 6
+GND,External regulated 5V PSU negative,Pi physical pin 6 and Adafruit 4409 STEMMA black Ground
+PSU_5V,External regulated 5V PSU positive,F1 1A input
+FUSED_5V,F1 output,Adafruit 4409 STEMMA red V+ and contact COM
+PUMP_POSITIVE,Adafruit 4409 contact NO,Pump positive and D1 SS14 cathode band
+GND,Pump negative,External 5V PSU negative and D1 SS14 anode
+UNUSED,Adafruit 4409 contact NC,Leave disconnected
+SENSOR_DECOUPLE,Pololu 5552 VIN,C1 10uF positive and C2 100nF top
+GND,Pololu 5552 GND,C1 negative and C2 bottom
