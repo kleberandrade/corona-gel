@@ -31,8 +31,8 @@ java -Djava.awt.headless=true examples/GenerateImages.java data
 java -jar target/corona-gel.jar
 ```
 
-The generator uses only Java2D/ImageIO and creates two original PNG slides and a
-sensor image. It overwrites those three demo filenames, so choose an empty directory
+The generator uses only Java2D/ImageIO and creates two illustrated PNG slides and a
+sensor image, including an original hand/droplet illustration and three-step guidance. It overwrites those three demo filenames, so choose an empty directory
 if preserving existing files. Its optional argument is the content root:
 
 ```sh

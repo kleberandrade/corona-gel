@@ -127,3 +127,33 @@ as well, leaving no authorized publication step pending.
   image edit tool to insert that source into a sibling totem concept image. Saved
   original render, exact edit prompt and provenance; no Pi/physical screen capture
   or invented UI is claimed. Added both example modes and preview capture to CI.
+
+## Explicit Labwc hardware autostart and illustrated demo — 2026-11-16
+
+- Read the official Raspberry Pi Labwc kiosk and boot/auto-login documentation.
+  Chose session startup so Swing inherits the real display session; no root service,
+  DISPLAY guessing or automatic crash/restart loop is introduced.
+- Wrote failing CLI tests before implementing a Python standard-library helper.
+  Enable validates the installed application and Java 21 before writing a private
+  launcher and one managed Labwc block. Disable removes only that block; status,
+  idempotence, symlink/malformed-file checks and existing commands are covered.
+- Pinned the selected Java executable, enabled real GPIO explicitly, redirected logs
+  to the user's state directory and used Linux flock for duplicate automatic starts.
+  Configuration never launches equipment. Installer copies the helper but leaves
+  activation explicit; OS desktop auto-login remains an OS configuration step.
+- Ran 13 autostart tests on macOS: 11 pass, 2 Linux-only launcher/lock cases skipped.
+  Added the complete suite to both Linux CI jobs. Used temporary coverage tooling
+  to measure CLI subprocesses; corrected report placement for crapper's LCOV reader.
+  Python manager statement coverage is 100%, combined branch coverage 99%.
+- Ran mutator for the new manager. Three survivors revealed weak diagnostic checks;
+  asserted the actual user-facing missing-install/unmanaged-launcher messages and
+  absence of tracebacks. The final manager result is 45 killed / 0 survived.
+- Replaced plain demo titles with original illustrated Java2D slides (hand, droplet,
+  hierarchy and three steps), preserving default landscape and optional portrait.
+  Captured the actual Swing component and used the built-in image editor only to
+  insert that render into the retained totem enclosure. Saved a sibling concept PNG,
+  source preview and exact prompt. No physical Pi boot or GPIO test was performed.
+
+- Dryer found identical portrait/landscape instruction-layout functions. Consolidated
+  the layout data, then proved all six generated PNGs byte-identical. Final dryer
+  result has no candidates at 0.8; maximum reported CRAP is 6 with measured coverage.

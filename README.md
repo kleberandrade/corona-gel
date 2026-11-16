@@ -13,10 +13,10 @@ sanitation, dosage, disease-prevention, or medical efficacy claim.
 
 ## Totem concept
 
-![Illustrative Corona Gel totem with screen, hand sensor and dispenser](docs/images/corona-gel-totem-with-app.png)
+![Illustrative Corona Gel totem with screen, hand sensor and dispenser](docs/images/corona-gel-totem-kiosk.png)
 
 Illustrative enclosure with a real render of the Java/Swing carousel showing the
-repository's portrait demo slide. The screen render is reproducible; the physical
+repository's illustrated portrait demo slide. The screen render is reproducible; the physical
 totem is an AI-generated concept, not a photograph of a tested Raspberry Pi assembly.
 [Original screen render](docs/images/application-preview.png) ·
 [Image provenance, commands and edit prompt](docs/images/README.md).
@@ -27,6 +27,8 @@ totem is an AI-generated concept, not a photograph of a tested Raspberry Pi asse
   and the console example. Java 21 is the validated target.
 - Maven **3.10.1**, downloaded automatically by the included Maven Wrapper, plus
   network access on the first build. No IDE or locally copied JARs are required.
+- Optional Pi desktop autostart: Python 3 and util-linux `flock` (included in the
+  documented Raspberry Pi OS baseline).
 - Real GPIO: Raspberry Pi 3B with 64-bit Raspberry Pi OS (Bookworm or newer), a JDK 21 for that system,
   access to `/dev/gpiochip0`, and a reviewed driver/sensor assembly. See
   [hardware requirements and wiring](hardware/README.md).
@@ -150,8 +152,10 @@ changes no permissions/system display settings, and adds no autostart entries.
 
 Review/fetch source updates yourself, then run `./update.sh [destination]`: it builds,
 tests and installs the current checkout without doing a hidden `git pull`.
-For a kiosk session, configure autostart using your current desktop environment after
-a manual simulation/hardware check; see [migration](docs/MIGRATION.md).
+For hardware startup at power-on, use the explicit [Labwc autostart setup](docs/AUTOSTART.md)
+after the unloaded relay check. It includes enable/disable/status commands, pinned
+Java 21, hardware flags, logs and a lock against duplicate automatic instances.
+Desktop auto-login is configured separately with the Pi's OS tools.
 
 ## Development and tests
 
