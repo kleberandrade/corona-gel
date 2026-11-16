@@ -1,6 +1,6 @@
-Host quality snapshot — 2026-11-16
+Host quality snapshot — 2026-11-16, survivor review
 
-Baseline: Java 21 / Maven 3.10.1 / 20 tests green.
+Baseline: Java 21 / Maven 3.10.1 / 24 tests green.
 Command environment used a temporary Maven cache and explicit JAVA_HOME.
 CRAP command: crapper --use-existing-coverage --threshold 9.99
 Duplication command: dryer --threshold 0.8
@@ -73,23 +73,19 @@ Wrote /Users/kleber/Projects/corona-gel/.metrics/crap.edn
 Wrote /Users/kleber/Projects/corona-gel/.metrics/dry.edn
 No duplicate candidates found.
 
-SURVIVED  src/main/java/com/kleberandrade/coronagel/components/CarouselSlider.java:103 - -> +
-SURVIVED  src/main/java/com/kleberandrade/coronagel/sensors/SensorManager.java:32 - -> +
-SURVIVED  src/main/java/com/kleberandrade/coronagel/sensors/SensorManager.java:32 0 -> 1
+SURVIVED  src/main/java/com/kleberandrade/coronagel/sensors/SensorManager.java:40 0 -> 1
 Function            Namespace                                              Killed  Survived  Uncovered  Sites   Score
 ---------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------
-Total                                                                          47         3         26     76   94.0%
+Total                                                                          49         1         26     76   98.0%
 
-Mutation scope: 47 killed, 3 survived, 26 uncovered, 76 sites total.
+Mutation scope: 49 killed, 1 survived, 26 uncovered, 76 sites total.
 The pure Dispenser policy has 13 killed / 0 survived / 0 uncovered.
-Survivor classification:
-- CarouselSlider initial-delay subtraction changed to addition: real animation
-  cadence is a remaining test gap. Pixel/virtual-event tests do not verify it.
-- SensorManager nanoTime origin subtraction changed to addition: changes the
-  constant clock offset; elapsed differences in the exercised uptime range agree.
-- SensorManager initial scheduling delay changed from 0 to 1 ms: both satisfy
-  asynchronous startup; no exact first-poll instant is promised.
+The former carousel-delay and clock-origin survivors are now killed.
+The initial scheduling delay 0 -> 1 ms is retained as contract-equivalent:
+startup is asynchronous and no exact first-poll phase is promised.
+See MUTATION_REVIEW.md for the evidence, corrected prior classification,
+and the distinction between contract equivalence and identical timestamps.
 
-Do not read the 94.0% tool score as full-project mutation coverage: uncovered
-hardware/fullscreen paths are excluded from that ratio. No Raspberry Pi tested.
+Do not read 98.0% as full-project mutation coverage: the score excludes
+uncovered sites. No Raspberry Pi GPIO or actuator was tested.

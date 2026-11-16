@@ -72,4 +72,58 @@ class CarouselSliderTest {
             } finally { slider.stop(); }
         });
     }
+    private static final class VirtualTimers {
+        long now;
+        final java.util.List<ManualTimer> timers = new java.util.ArrayList<>();
+        javax.swing.Timer create(int delay, java.awt.event.ActionListener listener) {
+            var timer = new ManualTimer(delay, listener); timers.add(timer); return timer;
+        }
+        void advanceTo(long target) {
+            while (true) {
+                ManualTimer next = timers.stream().filter(t -> t.running && t.due <= target)
+                        .min(java.util.Comparator.comparingLong(t -> t.due)).orElse(null);
+                if (next == null) break;
+                now = next.due; next.due += next.getDelay();
+                for (var listener : next.getActionListeners())
+                    listener.actionPerformed(new ActionEvent(next, 0, "tick", now, 0));
+            }
+            now = target;
+        }
+        private final class ManualTimer extends javax.swing.Timer {
+            boolean running;
+            long due;
+            ManualTimer(int delay, java.awt.event.ActionListener listener) { super(delay, listener); }
+            @Override public void start() { running = true; due = now + getInitialDelay(); }
+            @Override public void stop() { running = false; }
+            @Override public void restart() { start(); }
+        }
+    }
+
+    @Test void scheduledCarouselCompletesEachTransitionAtTheConfiguredPeriod() throws Exception {
+        image("slides/1.png", Color.RED); image("slides/2.png", Color.BLUE);
+        SwingUtilities.invokeAndWait(() -> {
+            var time = new VirtualTimers();
+            var slider = new CarouselSlider(7000, 500, data, time::create);
+            try {
+                assertEquals(Color.RED.getRGB(), paint(slider));
+                time.advanceTo(6499); assertEquals(Color.RED.getRGB(), paint(slider));
+                time.advanceTo(7000); assertEquals(Color.BLUE.getRGB(), paint(slider));
+                time.advanceTo(14000); assertEquals(Color.RED.getRGB(), paint(slider));
+            } finally { slider.stop(); }
+        });
+    }
+
+    @Test void detectionPausesScheduledSlidesAndReleaseRestartsACompletePeriod() throws Exception {
+        image("slides/1.png", Color.RED); image("slides/2.png", Color.BLUE); image("sensors/1.png", Color.GREEN);
+        SwingUtilities.invokeAndWait(() -> {
+            var time = new VirtualTimers();
+            var slider = new CarouselSlider(7000, 500, data, time::create);
+            try {
+                paint(slider); time.advanceTo(1000); slider.turnOn();
+                time.advanceTo(10000); assertEquals(Color.GREEN.getRGB(), paint(slider));
+                slider.turnOff(); time.advanceTo(16499); assertEquals(Color.RED.getRGB(), paint(slider));
+                time.advanceTo(17000); assertEquals(Color.BLUE.getRGB(), paint(slider));
+            } finally { slider.stop(); }
+        });
+    }
 }

@@ -30,6 +30,7 @@ public class CarouselSlider extends JPanel implements ActionListener, HandDetect
     private long startTime;
     private int fadeOutTime;
     private Timer timer;
+    private final java.util.function.BiFunction<Integer, ActionListener, Timer> timerFactory;
     private boolean handDetected = false;
 
     public CarouselSlider(int changeImageTime, int fadeOutTime) {
@@ -37,6 +38,12 @@ public class CarouselSlider extends JPanel implements ActionListener, HandDetect
     }
 
     public CarouselSlider(int changeImageTime, int fadeOutTime, java.nio.file.Path data) {
+        this(changeImageTime, fadeOutTime, data, Timer::new);
+    }
+
+    CarouselSlider(int changeImageTime, int fadeOutTime, java.nio.file.Path data,
+                   java.util.function.BiFunction<Integer, ActionListener, Timer> timerFactory) {
+        this.timerFactory = timerFactory;
         this.slides = data.resolve("figures/slides");
         this.sensors = data.resolve("figures/sensors");
         this.changeImageTime = changeImageTime;
@@ -99,7 +106,7 @@ public class CarouselSlider extends JPanel implements ActionListener, HandDetect
     }
 
     private void setTimer() {
-        this.timer = new Timer(20, this);
+        this.timer = timerFactory.apply(20, this);
         timer.setInitialDelay(changeImageTime - fadeOutTime);
         timer.start();
     }

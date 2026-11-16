@@ -15,21 +15,29 @@ public final class SensorManager implements AutoCloseable {
     private final Ports ports;
     private final HandDetectionListener listener;
     private final Dispenser dispenser = new Dispenser();
-    private final ScheduledExecutorService worker = Executors.newSingleThreadScheduledExecutor();
+    private final ScheduledExecutorService worker;
+    private final java.util.function.LongSupplier nanoTime;
     private boolean active;
     private boolean closed;
     private ScheduledFuture<?> task;
 
     public SensorManager(Ports ports, HandDetectionListener listener) {
+        this(ports, listener, Executors.newSingleThreadScheduledExecutor(), System::nanoTime);
+    }
+
+    SensorManager(Ports ports, HandDetectionListener listener, ScheduledExecutorService worker,
+                  java.util.function.LongSupplier nanoTime) {
         this.ports = ports;
         this.listener = listener;
+        this.worker = worker;
+        this.nanoTime = nanoTime;
     }
 
     public synchronized void start() {
         if (closed) throw new IllegalStateException("Controller is closed");
         if (task != null) return;
-        long origin = System.nanoTime();
-        task = worker.scheduleAtFixedRate(() -> poll(TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - origin)), 0, 10, TimeUnit.MILLISECONDS);
+        long origin = nanoTime.getAsLong();
+        task = worker.scheduleAtFixedRate(() -> poll(TimeUnit.NANOSECONDS.toMillis(nanoTime.getAsLong() - origin)), 0, 10, TimeUnit.MILLISECONDS);
     }
 
     public synchronized void poll(long now) {

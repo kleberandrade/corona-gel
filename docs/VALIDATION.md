@@ -19,16 +19,18 @@ Java configuration was changed. The wrapper was exercised with Maven 3.10.1.
 
 ## Executed checks
 
-- Clean Maven `verify`: **20 tests**, zero failures/errors/skips; package and JaCoCo
+- Clean Maven `verify`: **24 tests**, zero failures/errors/skips; package and JaCoCo
   report produced. Test cases use virtual times or fake I/O; no actuator is driven.
 - Policy cases: startup held low, stable release/detection, noise, exact pulse and
   cooldown boundaries, held sensor, delayed polling, and rearming.
 - Runtime cases: timeout reaches the output, close during pulse, idempotent close,
   latched read/write errors, display-listener failure, idempotent scheduler start and
-  rejected restart after close.
+  rejected restart after close, nonzero/negative monotonic origins and a too-short
+  initial release through the scheduled callback.
 - Media cases: absent folders, non-images, directories masquerading as images,
   invalid files, filename sorting, empty kiosk, activation before paint, slide/sensor
-  colors, mid-transition position, resume and successive transitions. Swing rendering
+  colors, mid-transition position, resume, successive transitions and complete
+  scheduled cycles with virtual timers. Swing rendering
   runs headlessly on the EDT; it is not an interactive desktop-session check.
 - Console example output matched the documented eight timestamp/output lines.
 - Java2D generator produced the three expected PNGs without external media downloads.
@@ -56,13 +58,13 @@ CRAP uses JaCoCo instruction coverage; all reported functions scored below 10 af
 refactoring/testing. This is a complexity indicator, not proof of complete behavior.
 Dryer found no duplicate candidates at similarity 0.8.
 
-The pure policy's 13 mutation sites were all killed after adding missing debounce
-and cooldown boundary tests. Broader mutation analysis also exercises covered Swing
-and runtime code, with remaining timing equivalents, a real-cadence test gap and host coverage gaps
-reported in the [final quality snapshot](QUALITY.txt): 47 killed, 3 survived and 26
-uncovered sites. A surviving mutant is not automatically an
-equivalent one: real scheduler cadence is not established by virtual-time tests.
-Do not infer full-project mutation adequacy from the policy's result.
+The pure policy's 13 mutation sites are all killed. The survivor review corrected
+an earlier false equivalence classification for the monotonic-clock origin and
+added virtual-scheduler tests for both real gaps. The measured full-source result
+is **49 killed, 1 survived, 26 uncovered**; the remaining 0-to-1 ms initial-delay
+mutant is equivalent under the asynchronous-startup contract, not bit-for-bit timing.
+See the [case-by-case review](MUTATION_REVIEW.md) and [raw quality snapshot](QUALITY.txt).
+No survivor was suppressed. Hardware/fullscreen coverage gaps remain explicit.
 
 ## Not executed
 
